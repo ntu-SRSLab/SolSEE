@@ -1,0 +1,1604 @@
+-> % solc OwnedToken.sol
+OwnedToken.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+OwnedToken.sol:28:9: Warning: Return value of low-level calls not used.
+        owner.call.value(address(this).balance)("");
+        ^-----------------------------------------^
+OwnedToken.sol:24:9: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        balances[msg.sender] += msg.value;
+        ^-------------------------------^
+  for:
+  <result> = 2**256
+  balances[msg.sender] = 1
+  msg.sender = 0
+  msg.value = 2**256 - 1
+  owner = 0
+
+Callstack: 
+
+OwnedToken.sol:28:9: Warning: Assertion checker does not yet implement this type of function call.
+        owner.call.value(address(this).balance)("");
+        ^-------------------------------------^
+OwnedToken.sol:36:17: Warning: Condition is always true.
+        require(address(this).balance >= $amount);
+                ^------------------------------^
+Callstack: 
+OwnedToken.sol:37:17: Warning: Assertion checker does not yet implement this type of function call.
+        token = (new Token).value($amount)("Token");
+                ^------------------------^
+OwnedToken.sol:39:9: Warning: Assertion violation happens here
+        assert(fallbackExecuted);
+        ^----------------------^
+  for:
+  $amount = 0
+  address(this).balance = 0
+  fallbackExecuted = false
+  owner = 0
+  this = 2
+  token = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:53:35] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc MultipleModifiers.sol 
+MultipleModifiers.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers.sol:30:5: Warning: Function state mutability can be restricted to view
+    function getModeState1() public returns(uint r) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers.sol:34:5: Warning: Function state mutability can be restricted to view
+    function getModeState2() public returns(uint r) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers.sol:38:5: Warning: Function state mutability can be restricted to view
+    function getModeState3() public returns(uint r) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers.sol:15:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState1 = modState1 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 2**256 - 1
+  modState2 = 0
+  modState3 = 0
+
+Callstack: 
+MultipleModifiers.sol:26:28: 
+    function func() public modA modB {
+                           ^--^
+
+MultipleModifiers.sol:20:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState2 = modState2 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 2**256 - 1
+  modState3 = 0
+
+Callstack: 
+MultipleModifiers.sol:26:33: 
+    function func() public modA modB {
+                                ^--^
+
+MultipleModifiers.sol:27:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState3 = modState3 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 1
+  modState3 = 2**256 - 1
+
+Callstack: 
+
+MultipleModifiers.sol:22:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState2 = modState2 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 2**256 - 1
+  modState3 = 1
+
+Callstack: 
+MultipleModifiers.sol:26:33: 
+    function func() public modA modB {
+                                ^--^
+
+MultipleModifiers.sol:27:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState3 = modState3 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 2
+  modState3 = 2**256 - 1
+
+Callstack: 
+
+MultipleModifiers.sol:59:9: Warning: Assertion violation happens here
+        assert(mode1 == 1);
+        ^----------------^
+  for:
+  modState1 = 0
+  modState2 = 0
+  modState3 = 0
+  mode1 = 2
+  mode2 = 0
+  mode3 = 3
+  mt = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+MultipleModifiers.sol:60:9: Warning: Assertion violation happens here
+        assert(mode2 == 2);
+        ^----------------^
+  for:
+  modState1 = 0
+  modState2 = 0
+  modState3 = 0
+  mode1 = 1
+  mode2 = 0
+  mode3 = 3
+  mt = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+MultipleModifiers.sol:63:9: Warning: Assertion violation happens here
+        assert(mode3 != 2);
+        ^----------------^
+  for:
+  modState1 = 0
+  modState2 = 0
+  modState3 = 0
+  mode1 = 1
+  mode2 = 2
+  mode3 = 2
+  mt = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:55:23] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc MultipleModifiers-SingleContract.sol 
+MultipleModifiers-SingleContract.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers-SingleContract.sol:28:5: Warning: Function state mutability can be restricted to view
+    function getModeState1() public returns(uint r) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers-SingleContract.sol:32:5: Warning: Function state mutability can be restricted to view
+    function getModeState2() public returns(uint r) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers-SingleContract.sol:36:5: Warning: Function state mutability can be restricted to view
+    function getModeState3() public returns(uint r) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+MultipleModifiers-SingleContract.sol:13:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState1 = modState1 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 2**256 - 1
+  modState2 = 0
+  modState3 = 0
+  mode1 = 0
+  mode2 = 0
+  mode3 = 0
+
+Callstack: 
+MultipleModifiers-SingleContract.sol:24:28: 
+    function func() public modA modB {
+                           ^--^
+
+MultipleModifiers-SingleContract.sol:18:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState2 = modState2 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 2**256 - 1
+  modState3 = 0
+  mode1 = 0
+  mode2 = 0
+  mode3 = 0
+
+Callstack: 
+MultipleModifiers-SingleContract.sol:24:33: 
+    function func() public modA modB {
+                                ^--^
+
+MultipleModifiers-SingleContract.sol:25:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState3 = modState3 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 1
+  modState3 = 2**256 - 1
+  mode1 = 0
+  mode2 = 0
+  mode3 = 0
+
+Callstack: 
+
+MultipleModifiers-SingleContract.sol:20:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState2 = modState2 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 2**256 - 1
+  modState3 = 1
+  mode1 = 0
+  mode2 = 0
+  mode3 = 0
+
+Callstack: 
+MultipleModifiers-SingleContract.sol:24:33: 
+    function func() public modA modB {
+                                ^--^
+
+MultipleModifiers-SingleContract.sol:25:21: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        modState3 = modState3 + 1;
+                    ^-----------^
+  for:
+  <result> = 2**256
+  modState1 = 1
+  modState2 = 2
+  modState3 = 2**256 - 1
+  mode1 = 0
+  mode2 = 0
+  mode3 = 0
+
+Callstack: 
+
+MultipleModifiers-SingleContract.sol:57:9: Warning: Assertion violation happens here
+        assert(mode3 != 2);
+        ^----------------^
+  for:
+  modState1 = 1
+  modState2 = 2
+  modState3 = 2
+  mode1 = 1
+  mode2 = 2
+  mode3 = 2
+  r = 2
+
+Callstack: 
+
+(base) 
+palina@CSLPalina02 [23:55:30] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc FallbackFunction.sol                
+FallbackFunction.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+FallbackFunction.sol:11:5: Warning: Function state mutability can be restricted to pure
+    function transfer(uint _a, uint _b) public returns(uint) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+FallbackFunction.sol:12:16: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        return _a + _b;
+               ^-----^
+  for:
+   = 0
+  <result> = 2**256
+  _a = 1
+  _b = 2**256 - 1
+  a = 0
+  b = 0
+
+Callstack: 
+
+FallbackFunction.sol:15:13: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        a = a + 1;
+            ^---^
+  for:
+  <result> = 2**256
+  a = 2**256 - 1
+  b = 0
+
+Callstack: 
+
+FallbackFunction.sol:31:25: Warning: Assertion checker does not yet implement this type of function call.
+        (ret, ignore) = c.call.value(10)("");
+                        ^--------------^
+FallbackFunction.sol:33:9: Warning: Assertion violation happens here
+        assert(ret == true);
+        ^-----------------^
+  for:
+  a = 0
+  b = 0
+  bank = 0
+  c = 2
+  ret = false
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+FallbackFunction.sol:34:9: Warning: Assertion violation happens here
+        assert(a == 3);
+        ^------------^
+  for:
+  a = 0
+  b = 0
+  bank = 0
+  c = 4
+  ret = true
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+FallbackFunction.sol:37:9: Warning: Assertion violation happens here
+        assert(b == 6);
+        ^------------^
+  for:
+  a = 0
+  b = 0
+  bank = 0
+  c = 4
+  ret = true
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+FallbackFunction.sol:39:9: Warning: Assertion violation happens here
+        assert(a == 4);
+        ^------------^
+  for:
+  a = 0
+  b = 0
+  bank = 0
+  c = 5
+  ret = true
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:55:43] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc GetterFunction.sol  
+GetterFunction.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+GetterFunction.sol:21:9: Warning: Assertion violation happens here
+        assert(a == 3);
+        ^------------^
+  for:
+  a = 0
+  b = 0
+  bank = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+GetterFunction.sol:24:9: Warning: Assertion violation happens here
+        assert(a == 4);
+        ^------------^
+  for:
+  a = 0
+  b = 0
+  bank = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:56:11] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc GetterFunction-SingleContract.sol 
+GetterFunction-SingleContract.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+GetterFunction-SingleContract.sol:17:9: Warning: Assertion violation happens here
+        assert(_a == 3);
+        ^-------------^
+  for:
+  _a = 1
+  a = 0
+  b = 0
+  this = 2
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+GetterFunction-SingleContract.sol:20:9: Warning: Assertion violation happens here
+        assert(_a == 4);
+        ^-------------^
+  for:
+  _a = 3
+  a = 0
+  b = 0
+  this = 1
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:56:13] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc SafeMathLibrary.sol              
+SafeMathLibrary.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+SafeMathLibrary.sol:89:17: Warning: Division by zero happens here
+        require(c / a == b, "SafeMath: multiplication overflow");
+                ^---^
+  for:
+   = 0
+  <result> = 0
+  a = 0
+  b = 0
+  c = 0
+
+Callstack: 
+
+SafeMathLibrary.sol:188:9: Warning: Assertion violation happens here
+        assert(ret == 1);
+        ^--------------^
+  for:
+  counter = 0
+  counter1 = 0
+  ret = 2
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+SafeMathLibrary.sol:191:9: Warning: Assertion violation happens here
+        assert(ret == 0);
+        ^--------------^
+  for:
+  counter = 0
+  counter1 = 0
+  ret = 1
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:56:58] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc SafeMathLibrary-SingleContract.sol 
+SafeMathLibrary-SingleContract.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+SafeMathLibrary-SingleContract.sol:89:17: Warning: Division by zero happens here
+        require(c / a == b, "SafeMath: multiplication overflow");
+                ^---^
+  for:
+   = 0
+  <result> = 0
+  a = 0
+  b = 0
+  c = 0
+
+Callstack: 
+
+SafeMathLibrary-SingleContract.sol:184:9: Warning: Assertion violation happens here
+        assert(ret == 0);
+        ^--------------^
+  for:
+   = 1
+  a = 0
+  b = 1
+  c = 1
+  counter = 1
+  counter1 = 1
+  ret = 1
+
+Callstack: 
+
+(base) 
+palina@CSLPalina02 [23:57:04] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc MultipleInheritance.sol           
+MultipleInheritance.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+MultipleInheritance.sol:135:9: Warning: Assertion violation happens here
+        assert(result == 3);
+        ^-----------------^
+  for:
+  cons_step_A = 0
+  cons_step_AB = 0
+  cons_step_AC = 0
+  cons_step_AC_AB = 0
+  cons_step_AC_BA = 0
+  cons_step_B = 0
+  cons_step_BA = 0
+  cons_step_C = 0
+  cons_step_object = 0
+  num = 0
+  result = 1
+  test = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+MultipleInheritance.sol:139:9: Warning: Assertion violation happens here
+        assert(result == 2);
+        ^-----------------^
+  for:
+  cons_step_A = 0
+  cons_step_AB = 0
+  cons_step_AC = 0
+  cons_step_AC_AB = 0
+  cons_step_AC_BA = 0
+  cons_step_B = 0
+  cons_step_BA = 0
+  cons_step_C = 0
+  cons_step_object = 0
+  num = 0
+  result = 3
+  test = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:57:16] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc MultipleInheritance-SingleContract.sol 
+MultipleInheritance-SingleContract.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+MultipleInheritance-SingleContract.sol:123:9: Warning: Assertion violation happens here
+        assert(result == 3);
+        ^-----------------^
+  for:
+  cons_step_A = 3
+  cons_step_AB = 0
+  cons_step_AC = 5
+  cons_step_AC_AB = 0
+  cons_step_AC_BA = 7
+  cons_step_B = 2
+  cons_step_BA = 6
+  cons_step_C = 4
+  cons_step_object = 1
+  num = 7
+  out = 1
+  result = 1
+
+Callstack: 
+
+(base) 
+palina@CSLPalina02 [23:57:21] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc Structs.sol                           
+Structs.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+Structs.sol:12:5: Warning: Assertion checker does not yet support the type of this variable.
+    Happy gg;
+    ^------^
+Structs.sol:15:9: Warning: Assertion checker does not yet support the type of this variable.
+        Happy memory happy;
+        ^----------------^
+Structs.sol:16:9: Warning: Assertion checker does not yet support this expression.
+        happy.cc = 1;
+        ^------^
+Structs.sol:16:9: Warning: Assertion checker does not yet implement type struct Bank.Happy memory
+        happy.cc = 1;
+        ^---^
+Structs.sol:16:9: Warning: Assertion checker does not yet implement such assignments.
+        happy.cc = 1;
+        ^----------^
+Structs.sol:17:9: Warning: Assertion checker does not yet support this expression.
+        happy.dd = 2;
+        ^------^
+Structs.sol:17:9: Warning: Assertion checker does not yet implement type struct Bank.Happy memory
+        happy.dd = 2;
+        ^---^
+Structs.sol:17:9: Warning: Assertion checker does not yet implement such assignments.
+        happy.dd = 2;
+        ^----------^
+Structs.sol:20:16: Warning: Assertion checker does not yet support this expression.
+        assert(happy.cc + happy.dd == 3);
+               ^------^
+Structs.sol:20:16: Warning: Assertion checker does not yet implement type struct Bank.Happy memory
+        assert(happy.cc + happy.dd == 3);
+               ^---^
+Structs.sol:20:27: Warning: Assertion checker does not yet support this expression.
+        assert(happy.cc + happy.dd == 3);
+                          ^------^
+Structs.sol:20:27: Warning: Assertion checker does not yet implement type struct Bank.Happy memory
+        assert(happy.cc + happy.dd == 3);
+                          ^---^
+Structs.sol:23:16: Warning: Assertion checker does not yet support this expression.
+        assert(happy.cc + happy.dd == 4);
+               ^------^
+Structs.sol:23:16: Warning: Assertion checker does not yet implement type struct Bank.Happy memory
+        assert(happy.cc + happy.dd == 4);
+               ^---^
+Structs.sol:23:27: Warning: Assertion checker does not yet support this expression.
+        assert(happy.cc + happy.dd == 4);
+                          ^------^
+Structs.sol:23:27: Warning: Assertion checker does not yet implement type struct Bank.Happy memory
+        assert(happy.cc + happy.dd == 4);
+                          ^---^
+Structs.sol:25:9: Warning: Assertion checker does not yet support this expression.
+        gg.cc = happy.cc;
+        ^---^
+Structs.sol:25:9: Warning: Assertion checker does not yet implement type struct Bank.Happy storage ref
+        gg.cc = happy.cc;
+        ^^
+Structs.sol:25:17: Warning: Assertion checker does not yet support this expression.
+        gg.cc = happy.cc;
+                ^------^
+Structs.sol:25:17: Warning: Assertion checker does not yet implement type struct Bank.Happy memory
+        gg.cc = happy.cc;
+                ^---^
+Structs.sol:25:9: Warning: Assertion checker does not yet implement such assignments.
+        gg.cc = happy.cc;
+        ^--------------^
+Structs.sol:26:9: Warning: Assertion checker does not yet support this expression.
+        gg.dd = 4;
+        ^---^
+Structs.sol:26:9: Warning: Assertion checker does not yet implement type struct Bank.Happy storage ref
+        gg.dd = 4;
+        ^^
+Structs.sol:26:9: Warning: Assertion checker does not yet implement such assignments.
+        gg.dd = 4;
+        ^-------^
+Structs.sol:20:16: Warning: Underflow (resulting value less than 0) happens here
+        assert(happy.cc + happy.dd == 3);
+               ^-----------------^
+  for:
+  <result> = (- 231584178474632390847141970017375815706539969331281128078915168015826259279869)
+  b = 0
+
+Callstack: 
+
+Structs.sol:20:16: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        assert(happy.cc + happy.dd == 3);
+               ^-----------------^
+  for:
+  <result> = 0x010000000000000000000000000000000000000000000000000000000000000003
+  b = 0
+
+Callstack: 
+
+Structs.sol:20:9: Warning: Assertion violation happens here
+        assert(happy.cc + happy.dd == 3);
+        ^------------------------------^
+  for:
+  b = 0
+
+Callstack: 
+
+Structs.sol:23:16: Warning: Underflow (resulting value less than 0) happens here
+        assert(happy.cc + happy.dd == 4);
+               ^-----------------^
+  for:
+  <result> = (- 115792089237316195423570985008687907853269984665640564039457584007913129639932)
+  b = 0
+
+Callstack: 
+
+Structs.sol:23:16: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+        assert(happy.cc + happy.dd == 4);
+               ^-----------------^
+  for:
+  <result> = 0x010000000000000000000000000000000000000000000000000000000000000004
+  b = 0
+
+Callstack: 
+
+Structs.sol:23:9: Warning: Assertion violation happens here
+        assert(happy.cc + happy.dd == 4);
+        ^------------------------------^
+  for:
+  b = 0
+
+Callstack: 
+
+(base) 
+palina@CSLPalina02 [23:57:35] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc NewBytesArray.sol 
+NewBytesArray.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray.sol:37:16: Warning: Assertion checker does not yet support this expression.
+        return ballots[chainperson].length; 
+               ^-------------------------^
+NewBytesArray.sol:40:16: Warning: Assertion checker does not yet support this expression.
+        return proposals[chainperson][ballot].length;
+               ^-----------------------------------^
+NewBytesArray.sol:44:25: Warning: Assertion checker does not yet support this expression.
+        for (uint i=0;i<ballots[chainperson].length;i++){
+                        ^-------------------------^
+NewBytesArray.sol:45:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][i].name == ballotName){
+                ^--------------------------^
+NewBytesArray.sol:45:17: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+            if (ballots[chainperson][i].name == ballotName){
+                ^---------------------^
+NewBytesArray.sol:45:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][i].name == ballotName){
+                ^--------------------------^
+NewBytesArray.sol:44:25: Warning: Assertion checker does not yet support this expression.
+        for (uint i=0;i<ballots[chainperson].length;i++){
+                        ^-------------------------^
+NewBytesArray.sol:51:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<voted[chainperson][ballot].length;i++){
+                         ^-------------------------------^
+NewBytesArray.sol:51:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<voted[chainperson][ballot].length;i++){
+                         ^-------------------------------^
+NewBytesArray.sol:59:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 y=0;y<ballots[msg.sender].length;y++){
+                         ^------------------------^
+NewBytesArray.sol:60:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][y].name == ballotName){
+                ^-------------------------^
+NewBytesArray.sol:60:17: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+            if (ballots[msg.sender][y].name == ballotName){
+                ^--------------------^
+NewBytesArray.sol:60:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][y].name == ballotName){
+                ^-------------------------^
+NewBytesArray.sol:61:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray.sol:59:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 y=0;y<ballots[msg.sender].length;y++){
+                         ^------------------------^
+NewBytesArray.sol:64:34: Warning: Assertion checker does not yet implement type type(struct ibaVoter.Ballot storage pointer)
+        ballots[msg.sender].push(Ballot({
+                                 ^----^
+NewBytesArray.sol:64:34: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot memory
+        ballots[msg.sender].push(Ballot({
+                                 ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray.sol:64:34: Warning: Assertion checker does not yet implement this expression.
+        ballots[msg.sender].push(Ballot({
+                                 ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray.sol:64:9: Warning: Assertion checker does not yet implement this type of function call.
+        ballots[msg.sender].push(Ballot({
+        ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray.sol:71:27: Warning: Assertion checker does not yet support this expression.
+        uint ballotsNum = ballots[msg.sender].length;
+                          ^------------------------^
+NewBytesArray.sol:72:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposalNames.length;i++){
+                         ^------------------^
+NewBytesArray.sol:73:54: Warning: Assertion checker does not yet implement type type(struct ibaVoter.Proposal storage pointer)
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^------^
+NewBytesArray.sol:73:54: Warning: Assertion checker does not yet implement type struct ibaVoter.Proposal memory
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^-------------------------------^
+NewBytesArray.sol:73:54: Warning: Assertion checker does not yet implement this expression.
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^-------------------------------^
+NewBytesArray.sol:73:13: Warning: Assertion checker does not yet implement this type of function call.
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+            ^-------------------------------------------------------------------------^
+NewBytesArray.sol:72:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposalNames.length;i++){
+                         ^------------------^
+NewBytesArray.sol:73:35: Warning: Underflow (resulting value less than 0) happens here
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                  ^----------^
+  for:
+  <result> = (- 1)
+  ballotName = 0
+  ballotsNum = 0
+  blindParam = false
+  i = 0
+  msg.sender = 0
+  success = false
+  y = 3
+
+Callstack: 
+
+Note that some information is erased after the execution of loops.
+You can re-introduce information using require().
+NewBytesArray.sol:73:35: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                  ^----------^
+  for:
+  <result> = 2**256
+  ballotName = 0
+  ballotsNum = 0x010000000000000000000000000000000000000000000000000000000000000001
+  blindParam = false
+  i = 0
+  msg.sender = 0
+  success = false
+  y = 3
+
+Callstack: 
+
+Note that some information is erased after the execution of loops.
+You can re-introduce information using require().
+NewBytesArray.sol:79:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray.sol:79:13: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------^
+NewBytesArray.sol:79:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray.sol:80:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray.sol:86:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray.sol:86:13: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------^
+NewBytesArray.sol:86:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray.sol:87:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray.sol:90:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray.sol:91:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray.sol:91:17: Warning: Assertion checker does not yet implement type struct ibaVoter.Proposal storage ref
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^-------------------------------^
+NewBytesArray.sol:91:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray.sol:90:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray.sol:98:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray.sol:98:13: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------^
+NewBytesArray.sol:98:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray.sol:99:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray.sol:102:13: Warning: Assertion checker does not yet support this expression.
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------------^
+NewBytesArray.sol:102:13: Warning: Assertion checker does not yet implement type struct ibaVoter.votedData storage ref
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------^
+NewBytesArray.sol:102:13: Warning: Assertion checker does not yet support this expression.
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------------^
+NewBytesArray.sol:103:20: Warning: Assertion checker does not yet support this expression.
+            return votedDatas[chainperson][ballot][voter].proposal;
+                   ^---------------------------------------------^
+NewBytesArray.sol:103:20: Warning: Assertion checker does not yet implement type struct ibaVoter.votedData storage ref
+            return votedDatas[chainperson][ballot][voter].proposal;
+                   ^------------------------------------^
+NewBytesArray.sol:110:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].finished == true){
+            ^-----------------------------------^
+NewBytesArray.sol:110:13: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+        if (ballots[chainperson][ballot].finished == true){
+            ^--------------------------^
+NewBytesArray.sol:110:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].finished == true){
+            ^-----------------------------------^
+NewBytesArray.sol:111:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray.sol:113:28: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+                           ^-------------------------------^
+NewBytesArray.sol:114:17: Warning: Assertion checker does not yet support this expression.
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------------^
+NewBytesArray.sol:114:17: Warning: Assertion checker does not yet implement type struct ibaVoter.votedData storage ref
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------^
+NewBytesArray.sol:114:17: Warning: Assertion checker does not yet support this expression.
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------------^
+NewBytesArray.sol:115:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray.sol:113:28: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+                           ^-------------------------------^
+NewBytesArray.sol:118:9: Warning: Assertion checker does not yet implement this type of function call.
+        voted[chainperson][ballot].push(msg.sender);
+        ^-----------------------------------------^
+NewBytesArray.sol:121:9: Warning: Assertion checker does not yet implement type struct ibaVoter.votedData storage ref
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+        ^-----------------------------------------^
+NewBytesArray.sol:121:55: Warning: Assertion checker does not yet implement type type(struct ibaVoter.votedData storage pointer)
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^-------^
+NewBytesArray.sol:121:55: Warning: Assertion checker does not yet implement type struct ibaVoter.votedData memory
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^---------------------------------------------^
+NewBytesArray.sol:121:55: Warning: Assertion checker does not yet implement this expression.
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^---------------------------------------------^
+NewBytesArray.sol:121:9: Warning: Assertion checker does not yet implement type struct ibaVoter.votedData storage ref
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+        ^-------------------------------------------------------------------------------------------^
+NewBytesArray.sol:122:14: Warning: Assertion checker does not yet implement this type of function call.
+        emit Vote(msg.sender, proposalNum);
+             ^---------------------------^
+NewBytesArray.sol:127:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray.sol:128:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray.sol:128:17: Warning: Assertion checker does not yet implement type struct ibaVoter.Proposal storage ref
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^-------------------------------^
+NewBytesArray.sol:128:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray.sol:127:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray.sol:136:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<ballots[msg.sender].length;i++){
+                         ^------------------------^
+NewBytesArray.sol:137:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][i].name == ballot) {
+                ^-------------------------^
+NewBytesArray.sol:137:17: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+            if (ballots[msg.sender][i].name == ballot) {
+                ^--------------------^
+NewBytesArray.sol:137:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][i].name == ballot) {
+                ^-------------------------^
+NewBytesArray.sol:138:21: Warning: Assertion checker does not yet support this expression.
+                if (ballots[msg.sender][i].chainperson == msg.sender){
+                    ^--------------------------------^
+NewBytesArray.sol:138:21: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+                if (ballots[msg.sender][i].chainperson == msg.sender){
+                    ^--------------------^
+NewBytesArray.sol:138:21: Warning: Assertion checker does not yet support this expression.
+                if (ballots[msg.sender][i].chainperson == msg.sender){
+                    ^--------------------------------^
+NewBytesArray.sol:139:21: Warning: Assertion checker does not yet support this expression.
+                    ballots[msg.sender][i].finished = true;
+                    ^-----------------------------^
+NewBytesArray.sol:139:21: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+                    ballots[msg.sender][i].finished = true;
+                    ^--------------------^
+NewBytesArray.sol:139:21: Warning: Assertion checker does not yet implement such assignments.
+                    ballots[msg.sender][i].finished = true;
+                    ^------------------------------------^
+NewBytesArray.sol:140:26: Warning: Assertion checker does not yet implement this type of function call.
+                    emit Finish(true);
+                         ^----------^
+NewBytesArray.sol:136:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<ballots[msg.sender].length;i++){
+                         ^------------------------^
+NewBytesArray.sol:151:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][ballotIndex].finished == false){
+                ^----------------------------------------^
+NewBytesArray.sol:151:17: Warning: Assertion checker does not yet implement type struct ibaVoter.Ballot storage ref
+            if (ballots[chainperson][ballotIndex].finished == false){
+                ^-------------------------------^
+NewBytesArray.sol:151:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][ballotIndex].finished == false){
+                ^----------------------------------------^
+NewBytesArray.sol:152:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray.sol:156:30: Warning: Assertion checker does not yet support this expression.
+            for (uint8 i=0;i<proposals[chainperson][ballotIndex].length;i++){
+                             ^----------------------------------------^
+NewBytesArray.sol:159:30: Warning: Assertion checker does not yet support this expression.
+                    winner = proposals[chainperson][ballotIndex][i].name;
+                             ^-----------------------------------------^
+NewBytesArray.sol:159:30: Warning: Assertion checker does not yet implement type struct ibaVoter.Proposal storage ref
+                    winner = proposals[chainperson][ballotIndex][i].name;
+                             ^------------------------------------^
+NewBytesArray.sol:156:30: Warning: Assertion checker does not yet support this expression.
+            for (uint8 i=0;i<proposals[chainperson][ballotIndex].length;i++){
+                             ^----------------------------------------^
+NewBytesArray.sol:178:25: Warning: Assertion checker does not yet implement this type of function call.
+        proposalNames = new bytes32[](4);
+                        ^--------------^
+NewBytesArray.sol:190:9: Warning: Assertion violation happens here
+        assert(proposalNum == 1);
+        ^----------------------^
+  for:
+  addr = 0
+  ballotName = 0x42616C6C6f7454657374
+  blindParam = false
+  msg.sender = 0
+  proposalNames[0] = 65
+  proposalNames[1] = 66
+  proposalNames[2] = 67
+  proposalNum = 3
+  voterContract = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+NewBytesArray.sol:193:9: Warning: Assertion violation happens here
+        assert(proposalNum == 2);
+        ^----------------------^
+  for:
+  addr = 0
+  ballotName = 0x42616C6C6f7454657374
+  blindParam = false
+  msg.sender = 0
+  proposalNames[0] = 65
+  proposalNames[1] = 66
+  proposalNames[2] = 67
+  proposalNum = 1
+  voterContract = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:58:04] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc NewBytesArray-SingleContract.sol 
+NewBytesArray-SingleContract.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray-SingleContract.sol:38:16: Warning: Assertion checker does not yet support this expression.
+        return ballots[chainperson].length; 
+               ^-------------------------^
+NewBytesArray-SingleContract.sol:41:16: Warning: Assertion checker does not yet support this expression.
+        return proposals[chainperson][ballot].length;
+               ^-----------------------------------^
+NewBytesArray-SingleContract.sol:45:25: Warning: Assertion checker does not yet support this expression.
+        for (uint i=0;i<ballots[chainperson].length;i++){
+                        ^-------------------------^
+NewBytesArray-SingleContract.sol:46:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][i].name == ballotName){
+                ^--------------------------^
+NewBytesArray-SingleContract.sol:46:17: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+            if (ballots[chainperson][i].name == ballotName){
+                ^---------------------^
+NewBytesArray-SingleContract.sol:46:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][i].name == ballotName){
+                ^--------------------------^
+NewBytesArray-SingleContract.sol:45:25: Warning: Assertion checker does not yet support this expression.
+        for (uint i=0;i<ballots[chainperson].length;i++){
+                        ^-------------------------^
+NewBytesArray-SingleContract.sol:52:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<voted[chainperson][ballot].length;i++){
+                         ^-------------------------------^
+NewBytesArray-SingleContract.sol:52:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<voted[chainperson][ballot].length;i++){
+                         ^-------------------------------^
+NewBytesArray-SingleContract.sol:60:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 y=0;y<ballots[msg.sender].length;y++){
+                         ^------------------------^
+NewBytesArray-SingleContract.sol:61:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][y].name == ballotName){
+                ^-------------------------^
+NewBytesArray-SingleContract.sol:61:17: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+            if (ballots[msg.sender][y].name == ballotName){
+                ^--------------------^
+NewBytesArray-SingleContract.sol:61:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][y].name == ballotName){
+                ^-------------------------^
+NewBytesArray-SingleContract.sol:62:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray-SingleContract.sol:60:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 y=0;y<ballots[msg.sender].length;y++){
+                         ^------------------------^
+NewBytesArray-SingleContract.sol:65:34: Warning: Assertion checker does not yet implement type type(struct _MAIN_.Ballot storage pointer)
+        ballots[msg.sender].push(Ballot({
+                                 ^----^
+NewBytesArray-SingleContract.sol:65:34: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot memory
+        ballots[msg.sender].push(Ballot({
+                                 ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray-SingleContract.sol:65:34: Warning: Assertion checker does not yet implement this expression.
+        ballots[msg.sender].push(Ballot({
+                                 ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray-SingleContract.sol:65:9: Warning: Assertion checker does not yet implement this type of function call.
+        ballots[msg.sender].push(Ballot({
+        ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray-SingleContract.sol:72:27: Warning: Assertion checker does not yet support this expression.
+        uint ballotsNum = ballots[msg.sender].length;
+                          ^------------------------^
+NewBytesArray-SingleContract.sol:73:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposalNames.length;i++){
+                         ^------------------^
+NewBytesArray-SingleContract.sol:74:54: Warning: Assertion checker does not yet implement type type(struct _MAIN_.Proposal storage pointer)
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^------^
+NewBytesArray-SingleContract.sol:74:54: Warning: Assertion checker does not yet implement type struct _MAIN_.Proposal memory
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^-------------------------------^
+NewBytesArray-SingleContract.sol:74:54: Warning: Assertion checker does not yet implement this expression.
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^-------------------------------^
+NewBytesArray-SingleContract.sol:74:13: Warning: Assertion checker does not yet implement this type of function call.
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+            ^-------------------------------------------------------------------------^
+NewBytesArray-SingleContract.sol:73:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposalNames.length;i++){
+                         ^------------------^
+NewBytesArray-SingleContract.sol:74:35: Warning: Underflow (resulting value less than 0) happens here
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                  ^----------^
+  for:
+  <result> = (- 1)
+  addr = 0
+  ballotName = 0
+  ballotsNum = 0
+  blindParam = false
+  i = 0
+  msg.sender = 0
+  success = false
+  y = 3
+
+Callstack: 
+
+Note that some information is erased after the execution of loops.
+You can re-introduce information using require().
+NewBytesArray-SingleContract.sol:74:35: Warning: Overflow (resulting value larger than 2**256 - 1) happens here
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                  ^----------^
+  for:
+  <result> = 2**256
+  addr = 0
+  ballotName = 0
+  ballotsNum = 0x010000000000000000000000000000000000000000000000000000000000000001
+  blindParam = false
+  i = 0
+  msg.sender = 0
+  success = false
+  y = 3
+
+Callstack: 
+
+Note that some information is erased after the execution of loops.
+You can re-introduce information using require().
+NewBytesArray-SingleContract.sol:80:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:80:13: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------^
+NewBytesArray-SingleContract.sol:80:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:81:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray-SingleContract.sol:87:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:87:13: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------^
+NewBytesArray-SingleContract.sol:87:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:88:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray-SingleContract.sol:91:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray-SingleContract.sol:92:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray-SingleContract.sol:92:17: Warning: Assertion checker does not yet implement type struct _MAIN_.Proposal storage ref
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^-------------------------------^
+NewBytesArray-SingleContract.sol:92:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray-SingleContract.sol:91:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray-SingleContract.sol:99:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:99:13: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------^
+NewBytesArray-SingleContract.sol:99:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:100:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray-SingleContract.sol:103:13: Warning: Assertion checker does not yet support this expression.
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------------^
+NewBytesArray-SingleContract.sol:103:13: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------^
+NewBytesArray-SingleContract.sol:103:13: Warning: Assertion checker does not yet support this expression.
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------------^
+NewBytesArray-SingleContract.sol:104:20: Warning: Assertion checker does not yet support this expression.
+            return votedDatas[chainperson][ballot][voter].proposal;
+                   ^---------------------------------------------^
+NewBytesArray-SingleContract.sol:104:20: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+            return votedDatas[chainperson][ballot][voter].proposal;
+                   ^------------------------------------^
+NewBytesArray-SingleContract.sol:111:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].finished == true){
+            ^-----------------------------------^
+NewBytesArray-SingleContract.sol:111:13: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+        if (ballots[chainperson][ballot].finished == true){
+            ^--------------------------^
+NewBytesArray-SingleContract.sol:111:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].finished == true){
+            ^-----------------------------------^
+NewBytesArray-SingleContract.sol:112:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray-SingleContract.sol:114:28: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+                           ^-------------------------------^
+NewBytesArray-SingleContract.sol:115:17: Warning: Assertion checker does not yet support this expression.
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------------^
+NewBytesArray-SingleContract.sol:115:17: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------^
+NewBytesArray-SingleContract.sol:115:17: Warning: Assertion checker does not yet support this expression.
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------------^
+NewBytesArray-SingleContract.sol:116:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray-SingleContract.sol:114:28: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+                           ^-------------------------------^
+NewBytesArray-SingleContract.sol:119:9: Warning: Assertion checker does not yet implement this type of function call.
+        voted[chainperson][ballot].push(msg.sender);
+        ^-----------------------------------------^
+NewBytesArray-SingleContract.sol:122:9: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+        ^-----------------------------------------^
+NewBytesArray-SingleContract.sol:122:55: Warning: Assertion checker does not yet implement type type(struct _MAIN_.votedData storage pointer)
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^-------^
+NewBytesArray-SingleContract.sol:122:55: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData memory
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^---------------------------------------------^
+NewBytesArray-SingleContract.sol:122:55: Warning: Assertion checker does not yet implement this expression.
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^---------------------------------------------^
+NewBytesArray-SingleContract.sol:122:9: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+        ^-------------------------------------------------------------------------------------------^
+NewBytesArray-SingleContract.sol:123:14: Warning: Assertion checker does not yet implement this type of function call.
+        emit Vote(msg.sender, proposalNum);
+             ^---------------------------^
+NewBytesArray-SingleContract.sol:128:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray-SingleContract.sol:129:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray-SingleContract.sol:129:17: Warning: Assertion checker does not yet implement type struct _MAIN_.Proposal storage ref
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^-------------------------------^
+NewBytesArray-SingleContract.sol:129:17: Warning: Assertion checker does not yet support this expression.
+            if (proposals[chainperson][ballot][i].name == proposalName){
+                ^------------------------------------^
+NewBytesArray-SingleContract.sol:128:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposals[chainperson][ballot].length;i++){
+                         ^-----------------------------------^
+NewBytesArray-SingleContract.sol:137:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<ballots[msg.sender].length;i++){
+                         ^------------------------^
+NewBytesArray-SingleContract.sol:138:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][i].name == ballot) {
+                ^-------------------------^
+NewBytesArray-SingleContract.sol:138:17: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+            if (ballots[msg.sender][i].name == ballot) {
+                ^--------------------^
+NewBytesArray-SingleContract.sol:138:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][i].name == ballot) {
+                ^-------------------------^
+NewBytesArray-SingleContract.sol:139:21: Warning: Assertion checker does not yet support this expression.
+                if (ballots[msg.sender][i].chainperson == msg.sender){
+                    ^--------------------------------^
+NewBytesArray-SingleContract.sol:139:21: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+                if (ballots[msg.sender][i].chainperson == msg.sender){
+                    ^--------------------^
+NewBytesArray-SingleContract.sol:139:21: Warning: Assertion checker does not yet support this expression.
+                if (ballots[msg.sender][i].chainperson == msg.sender){
+                    ^--------------------------------^
+NewBytesArray-SingleContract.sol:140:21: Warning: Assertion checker does not yet support this expression.
+                    ballots[msg.sender][i].finished = true;
+                    ^-----------------------------^
+NewBytesArray-SingleContract.sol:140:21: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+                    ballots[msg.sender][i].finished = true;
+                    ^--------------------^
+NewBytesArray-SingleContract.sol:140:21: Warning: Assertion checker does not yet implement such assignments.
+                    ballots[msg.sender][i].finished = true;
+                    ^------------------------------------^
+NewBytesArray-SingleContract.sol:141:26: Warning: Assertion checker does not yet implement this type of function call.
+                    emit Finish(true);
+                         ^----------^
+NewBytesArray-SingleContract.sol:137:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<ballots[msg.sender].length;i++){
+                         ^------------------------^
+NewBytesArray-SingleContract.sol:152:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][ballotIndex].finished == false){
+                ^----------------------------------------^
+NewBytesArray-SingleContract.sol:152:17: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+            if (ballots[chainperson][ballotIndex].finished == false){
+                ^-------------------------------^
+NewBytesArray-SingleContract.sol:152:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[chainperson][ballotIndex].finished == false){
+                ^----------------------------------------^
+NewBytesArray-SingleContract.sol:153:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray-SingleContract.sol:157:30: Warning: Assertion checker does not yet support this expression.
+            for (uint8 i=0;i<proposals[chainperson][ballotIndex].length;i++){
+                             ^----------------------------------------^
+NewBytesArray-SingleContract.sol:160:30: Warning: Assertion checker does not yet support this expression.
+                    winner = proposals[chainperson][ballotIndex][i].name;
+                             ^-----------------------------------------^
+NewBytesArray-SingleContract.sol:160:30: Warning: Assertion checker does not yet implement type struct _MAIN_.Proposal storage ref
+                    winner = proposals[chainperson][ballotIndex][i].name;
+                             ^------------------------------------^
+NewBytesArray-SingleContract.sol:157:30: Warning: Assertion checker does not yet support this expression.
+            for (uint8 i=0;i<proposals[chainperson][ballotIndex].length;i++){
+                             ^----------------------------------------^
+NewBytesArray-SingleContract.sol:172:25: Warning: Assertion checker does not yet implement this type of function call.
+        proposalNames = new bytes32[](4);
+                        ^--------------^
+NewBytesArray-SingleContract.sol:60:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 y=0;y<ballots[msg.sender].length;y++){
+                         ^------------------------^
+NewBytesArray-SingleContract.sol:61:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][y].name == ballotName){
+                ^-------------------------^
+NewBytesArray-SingleContract.sol:61:17: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+            if (ballots[msg.sender][y].name == ballotName){
+                ^--------------------^
+NewBytesArray-SingleContract.sol:61:17: Warning: Assertion checker does not yet support this expression.
+            if (ballots[msg.sender][y].name == ballotName){
+                ^-------------------------^
+NewBytesArray-SingleContract.sol:62:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray-SingleContract.sol:60:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 y=0;y<ballots[msg.sender].length;y++){
+                         ^------------------------^
+NewBytesArray-SingleContract.sol:65:34: Warning: Assertion checker does not yet implement type type(struct _MAIN_.Ballot storage pointer)
+        ballots[msg.sender].push(Ballot({
+                                 ^----^
+NewBytesArray-SingleContract.sol:65:34: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot memory
+        ballots[msg.sender].push(Ballot({
+                                 ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray-SingleContract.sol:65:34: Warning: Assertion checker does not yet implement this expression.
+        ballots[msg.sender].push(Ballot({
+                                 ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray-SingleContract.sol:65:9: Warning: Assertion checker does not yet implement this type of function call.
+        ballots[msg.sender].push(Ballot({
+        ^ (Relevant source part starts here and spans across multiple lines).
+NewBytesArray-SingleContract.sol:72:27: Warning: Assertion checker does not yet support this expression.
+        uint ballotsNum = ballots[msg.sender].length;
+                          ^------------------------^
+NewBytesArray-SingleContract.sol:73:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposalNames.length;i++){
+                         ^------------------^
+NewBytesArray-SingleContract.sol:74:54: Warning: Assertion checker does not yet implement type type(struct _MAIN_.Proposal storage pointer)
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^------^
+NewBytesArray-SingleContract.sol:74:54: Warning: Assertion checker does not yet implement type struct _MAIN_.Proposal memory
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^-------------------------------^
+NewBytesArray-SingleContract.sol:74:54: Warning: Assertion checker does not yet implement this expression.
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+                                                     ^-------------------------------^
+NewBytesArray-SingleContract.sol:74:13: Warning: Assertion checker does not yet implement this type of function call.
+            proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+            ^-------------------------------------------------------------------------^
+NewBytesArray-SingleContract.sol:73:26: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i=0;i<proposalNames.length;i++){
+                         ^------------------^
+NewBytesArray-SingleContract.sol:111:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].finished == true){
+            ^-----------------------------------^
+NewBytesArray-SingleContract.sol:111:13: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+        if (ballots[chainperson][ballot].finished == true){
+            ^--------------------------^
+NewBytesArray-SingleContract.sol:111:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].finished == true){
+            ^-----------------------------------^
+NewBytesArray-SingleContract.sol:112:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray-SingleContract.sol:114:28: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+                           ^-------------------------------^
+NewBytesArray-SingleContract.sol:115:17: Warning: Assertion checker does not yet support this expression.
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------------^
+NewBytesArray-SingleContract.sol:115:17: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------^
+NewBytesArray-SingleContract.sol:115:17: Warning: Assertion checker does not yet support this expression.
+            if (votedDatas[chainperson][ballot][msg.sender].isVal == true){
+                ^-----------------------------------------------^
+NewBytesArray-SingleContract.sol:116:17: Warning: Assertion checker does not yet implement this type of function call.
+                revert();
+                ^------^
+NewBytesArray-SingleContract.sol:114:28: Warning: Assertion checker does not yet support this expression.
+        for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+                           ^-------------------------------^
+NewBytesArray-SingleContract.sol:119:9: Warning: Assertion checker does not yet implement this type of function call.
+        voted[chainperson][ballot].push(msg.sender);
+        ^-----------------------------------------^
+NewBytesArray-SingleContract.sol:122:9: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+        ^-----------------------------------------^
+NewBytesArray-SingleContract.sol:122:55: Warning: Assertion checker does not yet implement type type(struct _MAIN_.votedData storage pointer)
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^-------^
+NewBytesArray-SingleContract.sol:122:55: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData memory
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^---------------------------------------------^
+NewBytesArray-SingleContract.sol:122:55: Warning: Assertion checker does not yet implement this expression.
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+                                                      ^---------------------------------------------^
+NewBytesArray-SingleContract.sol:122:9: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+        votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+        ^-------------------------------------------------------------------------------------------^
+NewBytesArray-SingleContract.sol:123:14: Warning: Assertion checker does not yet implement this type of function call.
+        emit Vote(msg.sender, proposalNum);
+             ^---------------------------^
+NewBytesArray-SingleContract.sol:99:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:99:13: Warning: Assertion checker does not yet implement type struct _MAIN_.Ballot storage ref
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------^
+NewBytesArray-SingleContract.sol:99:13: Warning: Assertion checker does not yet support this expression.
+        if (ballots[chainperson][ballot].blind == true){
+            ^--------------------------------^
+NewBytesArray-SingleContract.sol:100:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert();
+            ^------^
+NewBytesArray-SingleContract.sol:103:13: Warning: Assertion checker does not yet support this expression.
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------------^
+NewBytesArray-SingleContract.sol:103:13: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------^
+NewBytesArray-SingleContract.sol:103:13: Warning: Assertion checker does not yet support this expression.
+        if (votedDatas[chainperson][ballot][voter].isVal == true){
+            ^------------------------------------------^
+NewBytesArray-SingleContract.sol:104:20: Warning: Assertion checker does not yet support this expression.
+            return votedDatas[chainperson][ballot][voter].proposal;
+                   ^---------------------------------------------^
+NewBytesArray-SingleContract.sol:104:20: Warning: Assertion checker does not yet implement type struct _MAIN_.votedData storage ref
+            return votedDatas[chainperson][ballot][voter].proposal;
+                   ^------------------------------------^
+NewBytesArray-SingleContract.sol:184:9: Warning: Assertion violation happens here
+        assert(proposalNum == 1);
+        ^----------------------^
+  for:
+  addr = 0
+  ballot = 0
+  ballotName = 0x42616C6C6f7454657374
+  ballotsNum = 9
+  blindParam = false
+  chainperson = 0
+  i = 7
+  msg.sender = 0
+  proposalNames[0] = 65
+  proposalNames[1] = 66
+  proposalNames[2] = 67
+  proposalNum = 0
+  success = true
+  voteCount[chainperson][ballot][proposalNum] = 0
+  voter = 0
+  y = 10
+
+Callstack: 
+
+Note that some information is erased after the execution of loops.
+You can re-introduce information using require().
+NewBytesArray-SingleContract.sol:187:9: Warning: Assertion violation happens here
+        assert(proposalNum == 2);
+        ^----------------------^
+  for:
+  addr = 0
+  ballot = 0
+  ballotName = 0x42616C6C6f7454657374
+  ballotsNum = 8
+  blindParam = false
+  chainperson = 0
+  i = 6
+  msg.sender = 0
+  proposalNames[0] = 65
+  proposalNames[1] = 66
+  proposalNames[2] = 67
+  proposalNum = 1
+  success = true
+  voteCount[chainperson][ballot][proposalNum] = 0
+  voter = 0
+  y = 9
+
+Callstack: 
+
+Note that some information is erased after the execution of loops.
+You can re-introduce information using require().
+(base) 
+palina@CSLPalina02 [23:58:12] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc UintOverflow.sol                
+UintOverflow.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+UintOverflow.sol:12:9: Warning: Assertion violation happens here
+        assert(c > 255);
+        ^-------------^
+  for:
+  a = 255
+  b = 255
+  c = 254
+
+Callstack: 
+
+(base) 
+palina@CSLPalina02 [23:58:43] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % solc Revert.sol      
+Revert.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.17;"
+pragma experimental SMTChecker;
+^ (Relevant source part starts here and spans across multiple lines).
+Revert.sol:21:5: Warning: Function state mutability can be restricted to view
+    function getTotalSupply() public returns (uint) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+Revert.sol:15:13: Warning: Assertion checker does not yet implement this type of function call.
+            revert("x is not greater than y!!");
+            ^---------------------------------^
+Revert.sol:42:9: Warning: Assertion violation happens here
+        assert($a > $b || t == 100);    // check if $a <= $b, then t == 100
+        ^-------------------------^
+  for:
+  $a = 0
+  $b = 0
+  bank = 0
+  t = 1
+  totalSupply = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+Revert.sol:43:9: Warning: Assertion violation happens here
+        assert($a <= $b || t == 90);    // check if $a > $b, then t == 90
+        ^-------------------------^
+  for:
+  $a = 1
+  $b = 0
+  bank = 0
+  t = 2
+  totalSupply = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+Revert.sol:47:9: Warning: Assertion violation happens here
+        assert($a > $b || t != 100);
+        ^-------------------------^
+  for:
+  $a = 0
+  $b = 0
+  bank = 0
+  t = 100
+  totalSupply = 0
+
+Callstack: 
+
+Note that external function calls are not inlined, even if the source code of the function is available. This is due to the possibility that the actual called contract has the same ABI but implements the function differently.
+(base) 
+palina@CSLPalina02 [23:58:55] [~/Desktop/demo-evaluation/SMTChecker] 
+-> % 

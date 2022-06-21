@@ -1,0 +1,163 @@
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/OwnedToken.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/OwnedToken.sol
+... running SolToBoogie to translate Solidity to Boogie
+VeriSol translation error: Object reference not set to an instance of an object.
+(base) 
+palina@CSLPalina02 [23:05:15] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/MultipleModifiers.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol
+... running SolToBoogie to translate Solidity to Boogie
+VeriSol translation error: duplicated modifier
+(base) 
+palina@CSLPalina02 [23:05:25] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/FallbackFunction.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/FallbackFunction.sol(22,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 7)
+/Users/palina/Desktop/demo-evaluation/FallbackFunction.sol(33,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:05:35] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/GetterFunction.sol _MAIN_  
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/GetterFunction.sol
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/GetterFunction.sol(16,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 6)
+/Users/palina/Desktop/demo-evaluation/GetterFunction.sol(24,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:05:45] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/SafeMathLibrary.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+Error: 
+Unhandled Exception: cba.Util.InvalidProg: Cannot resolve __SolToBoogieTest_out.bpl
+   at cba.Util.BoogieUtil.ReadAndOnlyResolve(String filename) in /Users/mje/Code/corral/source/Util/BoogieUtil.cs:line 445
+   at cba.Driver.GetInputProgram(Configs config) in /Users/mje/Code/corral/source/Driver.cs:line 541
+   at cba.Driver.run(String[] args) in /Users/mje/Code/corral/source/Driver.cs:line 206
+   at cba.Driver.Main(String[] args) in /Users/mje/Code/corral/source/Driver.cs:line 44
+
+	*** Corral may have aborted abnormally (see corral.txt)
+(base) 
+palina@CSLPalina02 [23:05:56] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/MultipleInheritance.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor object_object that is not explicitly called in the inheritance/modifier list specified in AB...
+Assertion Failed
+Unknown id: 326
+
+   at SolToBoogie.TranslatorContext.GetASTNodeById(Int32 id) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/TranslatorContext.cs:line 156
+   at SolToBoogie.ProcedureTranslator.IsExternalFunctionCall(FunctionCall node) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 2993
+   at SolToBoogie.ProcedureTranslator.TranslateFunctionCalls(FunctionCall funcCall, List`1 outParams) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 1638
+   at SolToBoogie.ProcedureTranslator.Visit(Assignment node) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 1537
+   at SolidityAST.Assignment.Accept(IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/SolidityAST.cs:line 1582
+   at SolidityAST.ExpressionStatement.Accept(IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/SolidityAST.cs:line 1340
+   at SolToBoogie.ProcedureTranslator.TranslateStatement(Statement node) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 1293
+   at SolToBoogie.ProcedureTranslator.Visit(Block node) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 1332
+   at SolidityAST.Block.Accept(IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/SolidityAST.cs:line 960
+   at SolToBoogie.ProcedureTranslator.TranslateStatement(Statement node) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 1293
+   at SolToBoogie.ProcedureTranslator.Visit(FunctionDefinition node) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 416
+   at SolidityAST.FunctionDefinition.Accept(IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/SolidityAST.cs:line 444
+   at SolToBoogie.ProcedureTranslator.Visit(ContractDefinition node) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/ProcedureTranslator.cs:line 113
+   at SolidityAST.ContractDefinition.Accept(IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/SolidityAST.cs:line 328
+   at SolidityAST.Utils.AcceptList[T](List`1 list, IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/Utils.cs:line 15
+   at SolidityAST.SourceUnit.Accept(IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/SolidityAST.cs:line 187
+   at SolidityAST.SourceUnitList.Accept(IASTVisitor visitor) in /Users/palina/verisol-original/verisol/Sources/SolidityAST/SolidityAST.cs:line 110
+   at SolToBoogie.BoogieTranslator.Translate(AST solidityAST, HashSet`1 ignoredMethods, TranslatorFlags _translatorFlags, String entryPointContract) in /Users/palina/verisol-original/verisol/Sources/SolToBoogie/BoogieTranslator.cs:line 82
+   at VeriSolRunner.VeriSolExecutor.ExecuteSolToBoogie() in /Users/palina/verisol-original/verisol/Sources/VeriSol/VeriSolExecuter.cs:line 390
+   at VeriSolRunner.VeriSolExecutor.Execute() in /Users/palina/verisol-original/verisol/Sources/VeriSol/VeriSolExecuter.cs:line 65
+   at VeriSolRunner.Program.Main(String[] args) in /Users/palina/verisol-original/verisol/Sources/VeriSol/Program.cs:line 58
+[1]    9111 abort      dotnet ./bin/Debug/publish/VeriSol.dll  _MAIN_
+(base) 
+palina@CSLPalina02 [23:06:06] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/Structs.sol _MAIN_            
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/Structs.sol
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/Structs.sol(32,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 8)
+/Users/palina/Desktop/demo-evaluation/Structs.sol(21,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:06:20] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/NewBytesArray.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol
+... running SolToBoogie to translate Solidity to Boogie
+Warning: A mapping with nested array ballots of valuetype Ballot[]
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Formal Verification successful upto 4 transactions (see corral.txt)
+(base) 
+palina@CSLPalina02 [23:06:31] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/UintOverflow.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/UintOverflow.sol
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(2,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 1)
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(8,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:06:44] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/UintOverflow.sol _MAIN_ /useModularArithmetic
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/UintOverflow.sol
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(2,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 1)
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(10,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:06:52] [~/verisol-original/verisol] [master *]
+-> % dotnet ./bin/Debug/publish/VeriSol.dll  ~/Desktop/demo-evaluation/Revert.sol _MAIN_                
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/Revert.sol
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/verisol-original/verisol/bin/Debug/publish/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Proof found! Formal Verification successful! (see boogie.txt)
+(base) 
+palina@CSLPalina02 [23:07:02] [~/verisol-original/verisol] [master *]
+-> % 

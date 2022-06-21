@@ -1,0 +1,168 @@
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/OwnedToken.sol  _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/OwnedToken.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+VeriSol translation error: Object reference not set to an instance of an object.
+(base) 
+palina@CSLPalina02 [22:58:15] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/MultipleModifiers.sol  _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+VeriSol translation error: duplicated modifier
+(base) 
+palina@CSLPalina02 [22:58:35] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/FallbackFunction.sol  _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/FallbackFunction.sol(22,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 0)
+/Users/palina/Desktop/demo-evaluation/FallbackFunction.sol(33,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [22:58:52] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/GetterFunction.sol _MAIN_   
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/GetterFunction.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/GetterFunction.sol(16,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 0)
+/Users/palina/Desktop/demo-evaluation/GetterFunction.sol(24,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [22:59:05] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/SafeMathLibrary.sol _MAIN_
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol(181,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 0)
+/Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol(189,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:00:44] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/MultipleInheritance.sol _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor object_object that is not explicitly called in the inheritance/modifier list specified in AB...
+Warning!!: Invoking base constructor object_object that is not explicitly called in the inheritance/modifier list specified in BA...
+Warning!!: Invoking base constructor object_object that is not explicitly called in the inheritance/modifier list specified in AC...
+Warning!!: Invoking base constructor object_object that is not explicitly called in the inheritance/modifier list specified in AC_AB...
+Warning!!: Invoking base constructor A_A that is not explicitly called in the inheritance/modifier list specified in AC_AB...
+Warning!!: Invoking base constructor C_C that is not explicitly called in the inheritance/modifier list specified in AC_AB...
+Warning!!: Invoking base constructor B_B that is not explicitly called in the inheritance/modifier list specified in AC_AB...
+Warning!!: Invoking base constructor object_object that is not explicitly called in the inheritance/modifier list specified in AC_BA...
+Warning!!: Invoking base constructor B_B that is not explicitly called in the inheritance/modifier list specified in AC_BA...
+Warning!!: Invoking base constructor A_A that is not explicitly called in the inheritance/modifier list specified in AC_BA...
+Warning!!: Invoking base constructor C_C that is not explicitly called in the inheritance/modifier list specified in AC_BA...
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol(126,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 0)
+/Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol(137,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:01:38] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/Structs.sol  _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/Structs.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/Structs.sol(32,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 0)
+/Users/palina/Desktop/demo-evaluation/Structs.sol(21,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:02:15] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/NewBytesArray.sol  _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning: A mapping with nested array ballots of valuetype Ballot[]
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Formal Verification successful upto 4 transactions (see corral.txt)
+(base) 
+palina@CSLPalina02 [23:02:39] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/UintOverflow.sol  _MAIN_ 
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/UintOverflow.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(2,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 0)
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(8,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:02:54] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/UintOverflow.sol _MAIN_ /useModularArithmetic
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/UintOverflow.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Did not find a proof (see boogie.txt)
+... running /Users/palina/.dotnet/tools/corral /recursionBound:4 /k:1 /main:CorralEntry__MAIN_ /tryCTrace /printDataValues:1 __SolToBoogieTest_out.bpl
+	*** Found a counterexample (see corral.txt)
+	-----Transaction Sequence for Defect ------
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(2,1): : _MAIN___MAIN_ (this = address!0, msg.sender = address!2, msg.value = 0)
+/Users/palina/Desktop/demo-evaluation/UintOverflow.sol(10,1): : ASSERTION FAILS!
+	---------------
+
+	See full execution trace inside corral.txt
+(base) 
+palina@CSLPalina02 [23:03:18] [~/verisol] [master *]
+-> % ~/.dotnet/tools/VeriSol ~/Desktop/demo-evaluation/Revert.sol _MAIN_                            
+SpecFilesDir = /Users/palina/Desktop/demo-evaluation
+... running Solc on /Users/palina/Desktop/demo-evaluation/Revert.sol
+/Users/palina/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+... running /Users/palina/.dotnet/tools/boogie -doModSetAnalysis -inline:spec -noinfer  -inlineDepth:4 -proc:BoogieEntry_* __SolToBoogieTest_out.bpl
+	*** Proof found! Formal Verification successful! (see boogie.txt)
+(base) 
+palina@CSLPalina02 [23:03:37] [~/verisol] [master *]
+-> % 

@@ -1,0 +1,4270 @@
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/OwnedToken.sol              
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	FallBack Function: ()
+	State Variables:
+		fallbackExecuted@85
+		token@83
+	Modifiers:
+	Functions:
+		_MAIN_::__fallback__
+		_MAIN_:::function ()
+	Local Variables:
+		$amount@89
+
+Contract: Token
+	Constructor: Token()
+	State Variables:
+		balances@30
+		name@32
+		owner@2
+	Modifiers:
+		onlyOwner
+	Functions:
+		Token::recover:function ()
+		Token::deposit:function ()
+		Token:::function (string)
+	Local Variables:
+		_tokenName@34
+		_owner@4
+
+Contract: Ownable
+	Constructor: Ownable()
+	State Variables:
+		owner@2
+	Modifiers:
+		onlyOwner
+	Functions:
+		Ownable:::function (address)
+	Local Variables:
+		_owner@4
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:33:9: 
+   |
+33 |         uint $amount = 10;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:34:9: 
+   |
+34 |         require(address(this).balance >= $amount);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+======= ======= ======= ======= ======= ======= =======
+positive branch is possible! Go head with it!
+*** require() statement is satisfied!! ****
+======= ======= ======= ======= ======= ======= =======
+======= ======= ======= ======= ======= ======= =======
+negation branch is possible! Go head with it!
+*** require() statement failed!! ****
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:34:9: 
+   |
+34 |         require(address(this).balance >= $amount);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(>= balance%1%_0_ 10)
+Stop executing this path in this context!
+======= ======= ======= ======= ======= ======= =======
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:35:9: 
+   |
+35 |         token = (new Token).value($amount)("Token");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+update msg.value: 10
+postCondVec.size(): 1
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:4:9: 
+  |
+4 |         owner = _owner;
+  |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 0
+base constructor call, instead of a modifier invocation
+executeModifier() is executed!
+modifierIndex: 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:17:9: 
+   |
+17 |         name = _tokenName;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:18:9: 
+   |
+18 |         deposit();
+   |         ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:22:9: 
+   |
+22 |         balances[msg.sender] += msg.value;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:35:9: 
+   |
+35 |         token = (new Token).value($amount)("Token");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+update msg.value: 10
+postCondVec.size(): 1
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:4:9: 
+  |
+4 |         owner = _owner;
+  |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 0
+base constructor call, instead of a modifier invocation
+executeModifier() is executed!
+modifierIndex: 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:17:9: 
+   |
+17 |         name = _tokenName;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:18:9: 
+   |
+18 |         deposit();
+   |         ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:22:9: 
+   |
+22 |         balances[msg.sender] += msg.value;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:36:9: 
+   |
+36 |         token.recover();
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 0
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:8:9: 
+  |
+8 |         require(owner == msg.sender);
+  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+======= ======= ======= ======= ======= ======= =======
+positive branch is possible! Go head with it!
+*** require() statement is satisfied!! ****
+======= ======= ======= ======= ======= ======= =======
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:9:9: 
+  |
+9 |         _;
+  |         ^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:26:9: 
+   |
+26 |         owner.call.value(address(this).balance)("");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+update msg.value: (+ 10 0)
+postCondVec.size(): 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:41:9: 
+   |
+41 |         fallbackExecuted = true;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:36:9: 
+   |
+36 |         token.recover();
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 0
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:8:9: 
+  |
+8 |         require(owner == msg.sender);
+  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+======= ======= ======= ======= ======= ======= =======
+positive branch is possible! Go head with it!
+*** require() statement is satisfied!! ****
+======= ======= ======= ======= ======= ======= =======
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:9:9: 
+  |
+9 |         _;
+  |         ^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:26:9: 
+   |
+26 |         owner.call.value(address(this).balance)("");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+update msg.value: (+ 10 0)
+postCondVec.size(): 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:41:9: 
+   |
+41 |         fallbackExecuted = true;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:38:9: 
+   |
+38 |         assert(fallbackExecuted);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:38:9: 
+   |
+38 |         assert(fallbackExecuted);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 38, addr: 0x7fcb6f111390
+sourceContext: 31, addr: 0x7fcb6f111488
+	state variables: 
+		varName: name@32%2%, value: "Token", sort: String
+		varName: ret_Token, value: 2, sort: Int
+		varName: balances@30%2%, value: (store ((as const (Array Int Int)) 0)
+       2
+       (+ (select ((as const (Array Int Int)) 0) 2) 10)), sort: (Array Int Int)
+		varName: token@83%1%, value: 2, sort: Int
+		varName: owner@2%2%, value: 1, sort: Int
+		varName: balance%1%, value: (+ 10 0 (- balance%1%_0_ 10)), sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: fallbackExecuted@85%1%, value: true, sort: Bool
+		varName: msg.value, value: (+ 10 0), sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: balance%2%, value: (- (+ 10 0) (+ 10 0)), sort: Int
+	local variables: 
+		varName: _tokenName@34%2%, value: "Token", sort: String
+		varName: _owner@4%2%, value: 1, sort: Int
+		varName: $amount@89%1%, value: 10, sort: Int
+	path conditions: 
+		(>= balance%1%_0_ 10)
+		(= 1 1)
+		true
+	goHead: 1
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: None
+	function [Token::]'s call depth: 0
+	function [Token::recover]'s call depth: 0
+	function [Ownable::]'s call depth: 0
+	function [_MAIN_::]'s call depth: 0
+	function [Token::deposit]'s call depth: 0
+Call Stack: 
+++++++++++++ end of printing context +++++++++++++++
+result context [2]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 40, addr: 0x7fcb3f104080
+sourceContext: 37, addr: 0x7fcb3f104178
+	state variables: 
+		varName: ret_Token, value: 3, sort: Int
+		varName: name@32%3%, value: "Token", sort: String
+		varName: balances@30%3%, value: (store ((as const (Array Int Int)) 0)
+       3
+       (+ (select ((as const (Array Int Int)) 0) 3) 10)), sort: (Array Int Int)
+		varName: owner@2%3%, value: 1, sort: Int
+		varName: token@83%1%, value: 3, sort: Int
+		varName: balance%1%, value: (+ 10 0 (- balance%1%_0_ 10)), sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: fallbackExecuted@85%1%, value: true, sort: Bool
+		varName: balance%3%, value: (- (+ 10 0) (+ 10 0)), sort: Int
+		varName: msg.value, value: (+ 10 0), sort: Int
+		varName: msg.sender, value: 0, sort: Int
+	local variables: 
+		varName: $amount@89%1%, value: 10, sort: Int
+		varName: _tokenName@34%3%, value: "Token", sort: String
+		varName: _owner@4%3%, value: 1, sort: Int
+	path conditions: 
+		(not (>= balance%1%_0_ 10))
+		(= 1 1)
+		true
+	goHead: 1
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: None
+	function [Token::]'s call depth: 0
+	function [Token::recover]'s call depth: 0
+	function [Ownable::]'s call depth: 0
+	function [_MAIN_::]'s call depth: 0
+	function [Token::deposit]'s call depth: 0
+Call Stack: 
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(38) addr: 0x600001e08410
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:38:9: 
+   |
+38 |         assert(fallbackExecuted);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(31)addr: 0x7fcb6f20f4b0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:41:9: 
+   |
+41 |         fallbackExecuted = true;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(30)addr: 0x7fcb6f20f3a0
+		 /\
+		 ||
+		 ||
+	(29)addr: 0x7fcb6f20f290
+
+Path [1]: 
+	(40) addr: 0x600001e08418
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:38:9: 
+   |
+38 |         assert(fallbackExecuted);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(37)addr: 0x7fcb6f1078b0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/OwnedToken.sol:41:9: 
+   |
+41 |         fallbackExecuted = true;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(36)addr: 0x7fcb6f11c7c0
+		 /\
+		 ||
+		 ||
+	(35)addr: 0x7fcb6f112e10
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:21:10] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/MultipleModifiers.sol 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		mode3@96
+		mode2@94
+		mode1@92
+		mt@90
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+
+Contract: ModifierTest
+	Constructor: ModifierTest()
+	State Variables:
+		modState3@6
+		modState2@4
+		modState1@2
+	Modifiers:
+		modB
+		modA
+	Functions:
+		ModifierTest::getModeState3:function () returns (uint256)
+		ModifierTest::getModeState2:function () returns (uint256)
+		ModifierTest::func:function ()
+		ModifierTest::getModeState1:function () returns (uint256)
+		ModifierTest:::function ()
+	Local Variables:
+		r@82
+		r@74
+		r@66
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:49:9: 
+   |
+49 |         mt = new ModifierTest();
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:7:9: 
+  |
+7 |         modState1 = 0;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:8:9: 
+  |
+8 |         modState2 = 0;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:9:9: 
+  |
+9 |         modState3 = 0;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:50:9: 
+   |
+50 |         mt.func();
+   |         ^^^^^^^^^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 0
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:13:9: 
+   |
+13 |         modState1 = modState1 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:14:9: 
+   |
+14 |         _;
+   |         ^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:18:9: 
+   |
+18 |         modState2 = modState2 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:19:9: 
+   |
+19 |         _;
+   |         ^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 2
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:25:9: 
+   |
+25 |         modState3 = modState3 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:20:9: 
+   |
+20 |         modState2 = modState2 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:21:9: 
+   |
+21 |         _;
+   |         ^
+-------------------------------------------------
+executeModifier() is executed!
+modifierIndex: 2
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:25:9: 
+   |
+25 |         modState3 = modState3 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:52:9: 
+   |
+52 |         mode1 = mt.getModeState1();
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:29:9: 
+   |
+29 |         return modState1;
+   |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:53:9: 
+   |
+53 |         mode2 = mt.getModeState2();
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:33:9: 
+   |
+33 |         return modState2;
+   |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:54:9: 
+   |
+54 |         mode3 = mt.getModeState3();
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:37:9: 
+   |
+37 |         return modState3;
+   |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:57:9: 
+   |
+57 |         assert(mode1 == 1);
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:58:9: 
+   |
+58 |         assert(mode2 == 2);
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:61:9: 
+   |
+61 |         assert(mode3 != 2);
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 30, addr: 0x7fc44af21920
+sourceContext: 27, addr: 0x7fc44af21a18
+	state variables: 
+		varName: balance%2%, value: 0, sort: Int
+		varName: mode3@96%1%, value: (+ 0 1 1), sort: Int
+		varName: mode2@94%1%, value: (+ 0 1 1), sort: Int
+		varName: mode1@92%1%, value: (+ 0 1), sort: Int
+		varName: mt@90%1%, value: 2, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: modState2@4%2%, value: (+ 0 1 1), sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: ret_ModifierTest, value: 2, sort: Int
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+		varName: modState1@2%2%, value: (+ 0 1), sort: Int
+		varName: modState3@6%2%, value: (+ 0 1 1), sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+	local variables: 
+		varName: r@82%2%, value: (+ 0 1 1), sort: Int
+		varName: r@66%2%, value: (+ 0 1), sort: Int
+		varName: r@74%2%, value: (+ 0 1 1), sort: Int
+	path conditions: 
+		(= (+ 0 1) 1)
+		(= (+ 0 1 1) 2)
+		(not (not (= (+ 0 1 1) 2)))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [ModifierTest::getModeState3]'s call depth: 0
+	function [ModifierTest::]'s call depth: 0
+	function [_MAIN_::]'s call depth: 1
+	function [ModifierTest::getModeState1]'s call depth: 0
+	function [ModifierTest::getModeState2]'s call depth: 0
+	function [ModifierTest::func]'s call depth: 0
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(30) addr: 0x6000034b0010
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:61:9: 
+   |
+61 |         assert(mode3 != 2);
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(27)addr: 0x7fc41b904080
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:58:9: 
+   |
+58 |         assert(mode2 == 2);
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(25)addr: 0x7fc43af04ec0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:57:9: 
+   |
+57 |         assert(mode1 == 1);
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(24)addr: 0x7fc43af04c60
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:37:9: 
+   |
+37 |         return modState3;
+   |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(23)addr: 0x7fc43af04a00
+		 /\
+		 ||
+		 ||
+	(22)addr: 0x7fc43af047a0
+		 /\
+		 ||
+		 ||
+	(21)addr: 0x7fc43af04540
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:33:9: 
+   |
+33 |         return modState2;
+   |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(20)addr: 0x7fc43af042e0
+		 /\
+		 ||
+		 ||
+	(19)addr: 0x7fc43af04080
+		 /\
+		 ||
+		 ||
+	(18)addr: 0x7fc43af0e3f0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:29:9: 
+   |
+29 |         return modState1;
+   |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(17)addr: 0x7fc43af05690
+		 /\
+		 ||
+		 ||
+	(16)addr: 0x7fc43af05430
+		 /\
+		 ||
+		 ||
+	(15)addr: 0x7fc44b9134d0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:25:9: 
+   |
+25 |         modState3 = modState3 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(14)addr: 0x7fc44b907ef0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:20:9: 
+   |
+20 |         modState2 = modState2 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(13)addr: 0x7fc44af059f0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:25:9: 
+   |
+25 |         modState3 = modState3 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(12)addr: 0x7fc44b920bc0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:18:9: 
+   |
+18 |         modState2 = modState2 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(11)addr: 0x7fc44af09340
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:13:9: 
+   |
+13 |         modState1 = modState1 + 1;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(10)addr: 0x7fc44af07050
+		 /\
+		 ||
+		 ||
+	(9)addr: 0x7fc44b907250
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:9:9: 
+  |
+9 |         modState3 = 0;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(8)addr: 0x7fc44b906ff0
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:8:9: 
+  |
+8 |         modState2 = 0;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(7)addr: 0x7fc44b906d90
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/MultipleModifiers.sol:7:9: 
+  |
+7 |         modState1 = 0;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(6)addr: 0x7fc44b906b30
+		 /\
+		 ||
+		 ||
+	(5)addr: 0x7fc44b9068d0
+		 /\
+		 ||
+		 ||
+	(4)addr: 0x7fc44b9065c0
+		 /\
+		 ||
+		 ||
+	(3)addr: 0x7fc44b9064b0
+		 /\
+		 ||
+		 ||
+	(2)addr: 0x7fc44b9062b0
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:21:16] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/FallbackFunction.sol 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		bank@43
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+		ret@76
+		c@61
+		b@57
+		ignore@79
+		a@53
+
+Contract: Bank
+	Constructor: Bank()
+	FallBack Function: ()
+	State Variables:
+		b@4
+		a@2
+	Modifiers:
+	Functions:
+		Bank::transfer:function (uint256,uint256) returns (uint256)
+		Bank::__fallback__
+		Bank:::function ()
+	Local Variables:
+		ret_0@23
+		_b@20
+		_a@18
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:21:9: 
+   |
+21 |         bank = new Bank();
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:6:9: 
+  |
+6 |         a = 3;
+  |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:7:9: 
+  |
+7 |         b = 0;
+  |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:22:9: 
+   |
+22 |         uint a = 0;
+   |         ^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:23:9: 
+   |
+23 |         uint b = 0;
+   |         ^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:24:9: 
+   |
+24 |         address c;
+   |         ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:25:9: 
+   |
+25 |         c = address(bank);
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:26:9: 
+   |
+26 |         a = bank.a();
+   |         ^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:27:9: 
+   |
+27 |         bool ret;
+   |         ^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:28:9: 
+   |
+28 |         bytes memory ignore;
+   |         ^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:29:9: 
+   |
+29 |         (ret, ignore) = c.call.value(10)("");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+update msg.value: 10
+postCondVec.size(): 1
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:13:9: 
+   |
+13 |         a = a + 1;
+   |         ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:32:9: 
+   |
+32 |         assert(ret == true);
+   |         ^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:33:9: 
+   |
+33 |         assert(a == 3);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:35:9: 
+   |
+35 |         b = bank.transfer(a, 3);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:10:9: 
+  |
+10 |         return _a + _b;
+  |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:37:9: 
+   |
+37 |         assert(b == 6);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:38:9: 
+   |
+38 |         a = bank.a();
+   |         ^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:40:9: 
+   |
+40 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 30, addr: 0x7fb41f70f640
+sourceContext: 29, addr: 0x7fb41f70f738
+	state variables: 
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: ret_Bank, value: 2, sort: Int
+		varName: balance%2%, value: (+ 10 0), sort: Int
+		varName: msg.value, value: 10, sort: Int
+		varName: bank@43%1%, value: 2, sort: Int
+		varName: a@2%2%, value: (+ 3 1), sort: Int
+		varName: b@4%2%, value: 0, sort: Int
+		varName: balance%1%, value: (- balance%1%_0_ 10), sort: Int
+	local variables: 
+		varName: a@53%1%, value: (+ 3 1), sort: Int
+		varName: ret@76%1%, value: true, sort: Bool
+		varName: b@57%1%, value: (+ 3 3), sort: Int
+		varName: ignore@79%1%, value: "", sort: String
+		varName: c@61%1%, value: 2, sort: Int
+		varName: ret_0@23%2%, value: (+ 3 3), sort: Int
+		varName: _a@18%2%, value: 3, sort: Int
+		varName: _b@20%2%, value: 3, sort: Int
+	path conditions: 
+		(= true true)
+		(= 3 3)
+		(= (+ 3 3) 6)
+		(= (+ 3 1) 4)
+	goHead: 1
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: None
+	function [Bank::transfer]'s call depth: 0
+	function [_MAIN_::]'s call depth: 0
+	function [Bank::]'s call depth: 0
+Call Stack: 
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(30) addr: 0x6000009340d0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:40:9: 
+   |
+40 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(29)addr: 0x7fb41f71cf90
+		 /\
+		 ||
+		 ||
+	(27)addr: 0x7fb450809420
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:37:9: 
+   |
+37 |         assert(b == 6);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(26)addr: 0x7fb44f708d10
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:10:9: 
+  |
+10 |         return _a + _b;
+  |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(25)addr: 0x7fb44f712280
+		 /\
+		 ||
+		 ||
+	(24)addr: 0x7fb44f712060
+		 /\
+		 ||
+		 ||
+	(22)addr: 0x7fb44f70c1f0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:33:9: 
+   |
+33 |         assert(a == 3);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(20)addr: 0x7fb41f704080
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:32:9: 
+   |
+32 |         assert(ret == true);
+   |         ^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(19)addr: 0x7fb44f705dd0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/FallbackFunction.sol:13:9: 
+   |
+13 |         a = a + 1;
+   |         ^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(18)addr: 0x7fb44f705bb0
+		 /\
+		 ||
+		 ||
+	(17)addr: 0x7fb44f705990
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:21:21] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/GetterFunction.sol  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		bank@19
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+		a@29
+
+Contract: Bank
+	Constructor: Bank()
+	State Variables:
+		b@4
+		a@2
+	Modifiers:
+	Functions:
+		Bank:::function ()
+	Local Variables:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:15:9: 
+   |
+15 |         bank = new Bank();
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:6:9: 
+  |
+6 |         a = 3;
+  |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:7:9: 
+  |
+7 |         b = 0;
+  |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:16:9: 
+   |
+16 |         uint a = 0;
+   |         ^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:17:9: 
+   |
+17 |         a = bank.a();
+   |         ^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:19:9: 
+   |
+19 |         assert(a == 3);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:22:9: 
+   |
+22 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 14, addr: 0x7f96c781b340
+sourceContext: 11, addr: 0x7f96c781b438
+	state variables: 
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+		varName: b@4%2%, value: 0, sort: Int
+		varName: a@2%2%, value: 3, sort: Int
+		varName: bank@19%1%, value: 2, sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+		varName: ret_Bank, value: 2, sort: Int
+		varName: balance%2%, value: 0, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+	local variables: 
+		varName: a@29%1%, value: 3, sort: Int
+	path conditions: 
+		(= 3 3)
+		(not (= 3 4))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [Bank::]'s call depth: 0
+	function [_MAIN_::]'s call depth: 1
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(14) addr: 0x600000d841f0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:22:9: 
+   |
+22 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(11)addr: 0x7f96c5f08b10
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:19:9: 
+   |
+19 |         assert(a == 3);
+   |         ^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(10)addr: 0x7f96c5f08a00
+		 /\
+		 ||
+		 ||
+	(9)addr: 0x7f96c7904080
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:16:9: 
+   |
+16 |         uint a = 0;
+   |         ^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(8)addr: 0x7f96c78049a0
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:7:9: 
+  |
+7 |         b = 0;
+  |         ^^^^^
+-------------------------------------------------
+		 ||
+	(7)addr: 0x7f96c7804890
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/GetterFunction.sol:6:9: 
+  |
+6 |         a = 3;
+  |         ^^^^^
+-------------------------------------------------
+		 ||
+	(6)addr: 0x7f96c7804780
+		 /\
+		 ||
+		 ||
+	(5)addr: 0x7f96c7804670
+		 /\
+		 ||
+		 ||
+	(4)addr: 0x7f96c7804560
+		 /\
+		 ||
+		 ||
+	(3)addr: 0x7f96c78043c0
+		 /\
+		 ||
+		 ||
+	(2)addr: 0x7f96c78042b0
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:21:26] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/SafeMathLibrary.sol 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		counter1@240
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+		ret@250
+
+Contract: Counter
+	State Variables:
+		counter@204
+	Modifiers:
+	Functions:
+		Counter::decrement:function ()
+		Counter::increment:function () returns (uint256)
+	Local Variables:
+		counter1@210
+		ret_0@207
+
+Contract: SafeMath
+	State Variables:
+	Modifiers:
+	Functions:
+		SafeMath::mod:function (uint256,uint256) returns (uint256)
+		SafeMath::div:function (uint256,uint256,string) returns (uint256)
+		SafeMath::div:function (uint256,uint256) returns (uint256)
+		SafeMath::mod:function (uint256,uint256,string) returns (uint256)
+		SafeMath::mul:function (uint256,uint256) returns (uint256)
+		SafeMath::sub:function (uint256,uint256,string) returns (uint256)
+		SafeMath::sub:function (uint256,uint256) returns (uint256)
+		SafeMath::add:function (uint256,uint256) returns (uint256)
+	Local Variables:
+		ret_0@183
+		b@178
+		a@176
+		a@160
+		c@150
+		c@98
+		ret_0@122
+		a@133
+		a@117
+		b@85
+		ret_0@88
+		a@83
+		ret_0@60
+		b@4
+		errorMessage@180
+		errorMessage@57
+		ret_0@35
+		a@53
+		ret@38
+		b@119
+		ret_0@140
+		b@32
+		c@70
+		c@10
+		b@55
+		ret_0@7
+		a@30
+		ret_0@165
+		errorMessage@137
+		b@135
+		b@162
+		a@2
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:182:9: 
+    |
+182 |         counter1 = new Counter();
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:183:9: 
+    |
+183 |         uint256 ret;
+    |         ^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:184:9: 
+    |
+184 |         ret = counter1.increment();
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:166:9: 
+    |
+166 |         uint256 counter1 = 0;
+    |         ^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:167:9: 
+    |
+167 |         counter1 = counter1.add(1);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:25:9: 
+   |
+25 |         uint256 c;
+   |         ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:26:9: 
+   |
+26 |         c = a + b;
+   |         ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:27:9: 
+   |
+27 |         require(c >= a, "SafeMath: addition overflow");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+======= ======= ======= ======= ======= ======= =======
+positive branch is possible! Go head with it!
+*** require() statement is satisfied!! ****
+======= ======= ======= ======= ======= ======= =======
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:29:9: 
+   |
+29 |         return c;
+   |         ^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:168:9: 
+    |
+168 |         counter++;
+    |         ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:169:9: 
+    |
+169 |         return counter1;
+    |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:186:9: 
+    |
+186 |         assert(ret == 1);
+    |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:189:9: 
+    |
+189 |         assert(ret == 0);
+    |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 21, addr: 0x7fa5d570dcf0
+sourceContext: 18, addr: 0x7fa5d570dde8
+	state variables: 
+		varName: ret_Counter, value: 2, sort: Int
+		varName: counter@204%2%, value: (+ 0 1), sort: Int
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: balance%2%, value: 0, sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: counter1@240%1%, value: 2, sort: Int
+	local variables: 
+		varName: ret_0@7%2%, value: (+ 0 1), sort: Int
+		varName: a@2%2%, value: 0, sort: Int
+		varName: c@10%2%, value: (+ 0 1), sort: Int
+		varName: b@4%2%, value: 1, sort: Int
+		varName: counter1@210%2%, value: (+ 0 1), sort: Int
+		varName: ret@250%1%, value: (+ 0 1), sort: Int
+		varName: ret_0@207%2%, value: (+ 0 1), sort: Int
+	path conditions: 
+		(>= (+ 0 1) 0)
+		(= (+ 0 1) 1)
+		(not (= (+ 0 1) 0))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [SafeMath::add]'s call depth: 0
+	function [_MAIN_::]'s call depth: 1
+	function [Counter::increment]'s call depth: 0
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(21) addr: 0x600003ae1330
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:189:9: 
+    |
+189 |         assert(ret == 0);
+    |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(18)addr: 0x7fa5d57044c0
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:186:9: 
+    |
+186 |         assert(ret == 1);
+    |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(17)addr: 0x7fa5d57105d0
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:169:9: 
+    |
+169 |         return counter1;
+    |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(16)addr: 0x7fa5d7104dd0
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:168:9: 
+    |
+168 |         counter++;
+    |         ^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(15)addr: 0x7fa5d7108ba0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:29:9: 
+   |
+29 |         return c;
+   |         ^^^^^^^^
+-------------------------------------------------
+		 ||
+	(13)addr: 0x7fa5d711b340
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:27:9: 
+   |
+27 |         require(c >= a, "SafeMath: addition overflow");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(12)addr: 0x7fa5d7104cc0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:26:9: 
+   |
+26 |         c = a + b;
+   |         ^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(11)addr: 0x7fa5d7104bb0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/SafeMathLibrary.sol:25:9: 
+   |
+25 |         uint256 c;
+   |         ^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(10)addr: 0x7fa5d7104aa0
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:21:40] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/MultipleInheritance.sol 
+****** WARNING!!! ****
+ Variable Shadowing for global variable [num@3]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [cons_step_object@5]
+****** WARNING!!! ****
+ Variable Shadowing for local variable [out@19]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [num@3]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [cons_step_object@5]
+****** WARNING!!! ****
+ Variable Shadowing for local variable [out@19]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [num@3]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [cons_step_object@5]
+****** WARNING!!! ****
+ Variable Shadowing for local variable [out@19]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [cons_step_object@5]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [num@3]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [cons_step_A@31]
+****** WARNING!!! ****
+ Variable Shadowing for local variable [out@19]
+****** WARNING!!! ****
+ Variable Shadowing for local variable [out@45]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [cons_step_A@31]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [cons_step_object@5]
+****** WARNING!!! ****
+ Variable Shadowing for global variable [num@3]
+****** WARNING!!! ****
+ Variable Shadowing for local variable [out@45]
+****** WARNING!!! ****
+ Variable Shadowing for local variable [out@19]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: AC_BA
+	Constructor: AC_BA()
+	State Variables:
+		cons_step_B@57
+		cons_step_A@31
+		num@3
+		cons_step_C@83
+		cons_step_BA@141
+		cons_step_object@5
+		cons_step_AC_BA@231
+		cons_step_AC@171
+	Modifiers:
+	Functions:
+		AC_BA:::function ()
+		AC_BA::go:function () returns (uint256)
+	Local Variables:
+		out@245
+		out@45
+		out@19
+		out@71
+		out@155
+		out@97
+		out@185
+
+Contract: AC_AB
+	Constructor: AC_AB()
+	State Variables:
+		cons_step_AC_AB@201
+		cons_step_B@57
+		cons_step_AB@111
+		cons_step_A@31
+		num@3
+		cons_step_C@83
+		cons_step_object@5
+		cons_step_AC@171
+	Modifiers:
+	Functions:
+		AC_AB:::function ()
+		AC_AB::go:function () returns (uint256)
+	Local Variables:
+		out@215
+		out@71
+		out@125
+		out@45
+		out@19
+		out@97
+		out@185
+
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		result@259
+		test@257
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+
+Contract: AC
+	Constructor: AC()
+	State Variables:
+		cons_step_AC@171
+		cons_step_object@5
+		cons_step_C@83
+		num@3
+		cons_step_A@31
+	Modifiers:
+	Functions:
+		AC:::function ()
+		AC::go:function () returns (uint256)
+	Local Variables:
+		out@185
+		out@97
+		out@19
+		out@45
+
+Contract: BA
+	Constructor: BA()
+	State Variables:
+		cons_step_BA@141
+		cons_step_A@31
+		cons_step_object@5
+		num@3
+		cons_step_B@57
+	Modifiers:
+	Functions:
+		BA:::function ()
+		BA::go:function () returns (uint256)
+	Local Variables:
+		out@45
+		out@19
+		out@155
+		out@71
+
+Contract: AB
+	Constructor: AB()
+	State Variables:
+		cons_step_object@5
+		cons_step_AB@111
+		cons_step_B@57
+		num@3
+		cons_step_A@31
+	Modifiers:
+	Functions:
+		AB:::function ()
+		AB::go:function () returns (uint256)
+	Local Variables:
+		out@125
+		out@71
+		out@19
+		out@45
+
+Contract: A
+	Constructor: A()
+	State Variables:
+		cons_step_A@31
+		num@3
+		cons_step_object@5
+	Modifiers:
+	Functions:
+		A:::function ()
+		A::go:function () returns (uint256)
+	Local Variables:
+		out@45
+		out@19
+
+Contract: C
+	Constructor: C()
+	State Variables:
+		cons_step_C@83
+		num@3
+		cons_step_object@5
+	Modifiers:
+	Functions:
+		C:::function ()
+		C::go:function () returns (uint256)
+	Local Variables:
+		out@97
+		out@19
+
+Contract: B
+	Constructor: B()
+	State Variables:
+		cons_step_B@57
+		num@3
+		cons_step_object@5
+	Modifiers:
+	Functions:
+		B:::function ()
+		B::go:function () returns (uint256)
+	Local Variables:
+		out@71
+		out@19
+
+Contract: object
+	Constructor: object()
+	State Variables:
+		cons_step_object@5
+		num@3
+	Modifiers:
+	Functions:
+		object::go:function () returns (uint256)
+		object:::function ()
+	Local Variables:
+		out@19
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:128:9: 
+    |
+128 |         test = new AC_BA();
+    |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:6:9: 
+  |
+6 |         num++;
+  |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:7:9: 
+  |
+7 |         cons_step_object = num;
+  |         ^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:31:9: 
+   |
+31 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:32:9: 
+   |
+32 |         cons_step_B = num;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:19:9: 
+   |
+19 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:20:9: 
+   |
+20 |         cons_step_A = num;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:44:9: 
+   |
+44 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:45:9: 
+   |
+45 |         cons_step_C = num;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:86:9: 
+   |
+86 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:87:9: 
+   |
+87 |         cons_step_AC = num;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:72:9: 
+   |
+72 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:73:9: 
+   |
+73 |         cons_step_BA = num;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:113:9: 
+    |
+113 |         num++;
+    |         ^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:114:9: 
+    |
+114 |         cons_step_AC_BA = num;
+    |         ^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:130:9: 
+    |
+130 |         result = test.go();
+    |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:118:8: 
+    |
+118 |        out = super.go();
+    |        ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:77:8: 
+   |
+77 |        out = super.go();
+   |        ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:91:8: 
+   |
+91 |        out = super.go();
+   |        ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:49:9: 
+   |
+49 |         out = 3;
+   |         ^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:133:9: 
+    |
+133 |         assert(result == 3);
+    |         ^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:137:9: 
+    |
+137 |         assert(result == 2);
+    |         ^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 45, addr: 0x7ff4e4b100f0
+sourceContext: 42, addr: 0x7ff4e4b101e8
+	state variables: 
+		varName: result@259%1%, value: 3, sort: Int
+		varName: cons_step_C@83%2%, value: (+ 0 1 1 1 1), sort: Int
+		varName: balance%2%, value: 0, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: test@257%1%, value: 2, sort: Int
+		varName: num@3%2%, value: (+ 0 1 1 1 1 1 1 1), sort: Int
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+		varName: cons_step_A@31%2%, value: (+ 0 1 1 1), sort: Int
+		varName: cons_step_object@5%2%, value: (+ 0 1), sort: Int
+		varName: ret_AC_BA, value: 2, sort: Int
+		varName: cons_step_AC_BA@231%2%, value: (+ 0 1 1 1 1 1 1 1), sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+		varName: cons_step_AC@171%2%, value: (+ 0 1 1 1 1 1), sort: Int
+		varName: cons_step_B@57%2%, value: (+ 0 1 1), sort: Int
+		varName: cons_step_BA@141%2%, value: (+ 0 1 1 1 1 1 1), sort: Int
+	local variables: 
+		varName: out@45%2%, value: 0, sort: Int
+		varName: out@245%2%, value: 3, sort: Int
+		varName: out@155%2%, value: 3, sort: Int
+		varName: out@19%2%, value: 0, sort: Int
+		varName: out@97%2%, value: 3, sort: Int
+		varName: out@71%2%, value: 0, sort: Int
+		varName: out@185%2%, value: 3, sort: Int
+	path conditions: 
+		(= 3 3)
+		(not (= 3 2))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [object::]'s call depth: 0
+	function [_MAIN_::]'s call depth: 1
+	function [BA::go]'s call depth: 0
+	function [A::]'s call depth: 0
+	function [AC_BA::]'s call depth: 0
+	function [AC::]'s call depth: 0
+	function [C::go]'s call depth: 0
+	function [AC_BA::go]'s call depth: 0
+	function [C::]'s call depth: 0
+	function [AC::go]'s call depth: 0
+	function [BA::]'s call depth: 0
+	function [B::]'s call depth: 0
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(45) addr: 0x600002490130
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:137:9: 
+    |
+137 |         assert(result == 2);
+    |         ^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(42)addr: 0x7ff4e4819490
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:133:9: 
+    |
+133 |         assert(result == 3);
+    |         ^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(41)addr: 0x7ff4e4817e50
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:49:9: 
+   |
+49 |         out = 3;
+   |         ^^^^^^^
+-------------------------------------------------
+		 ||
+	(40)addr: 0x7ff4e4814790
+		 /\
+		 ||
+		 ||
+	(39)addr: 0x7ff4e4814450
+		 /\
+		 ||
+		 ||
+	(38)addr: 0x7ff4e4814110
+		 /\
+		 ||
+		 ||
+	(37)addr: 0x7ff4e4813dd0
+		 /\
+		 ||
+		 ||
+	(36)addr: 0x7ff4e4813a90
+		 /\
+		 ||
+		 ||
+	(35)addr: 0x7ff4e4813750
+		 /\
+		 ||
+		 ||
+	(34)addr: 0x7ff4e4813410
+		 /\
+		 ||
+		 ||
+	(33)addr: 0x7ff4e4806bd0
+		 /\
+		 ||
+		 ||
+	(32)addr: 0x7ff4e481d4d0
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:114:9: 
+    |
+114 |         cons_step_AC_BA = num;
+    |         ^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(31)addr: 0x7ff4e4a054e0
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:113:9: 
+    |
+113 |         num++;
+    |         ^^^^^
+-------------------------------------------------
+		 ||
+	(30)addr: 0x7ff4c4004bf0
+		 /\
+		 ||
+		 ||
+	(29)addr: 0x7ff4c40048b0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:73:9: 
+   |
+73 |         cons_step_BA = num;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(28)addr: 0x7ff4e490a500
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:72:9: 
+   |
+72 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+		 ||
+	(27)addr: 0x7ff4e491d450
+		 /\
+		 ||
+		 ||
+	(26)addr: 0x7ff4e491f5d0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:87:9: 
+   |
+87 |         cons_step_AC = num;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(25)addr: 0x7ff4e4b0ed50
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:86:9: 
+   |
+86 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+		 ||
+	(24)addr: 0x7ff4e4b0ea10
+		 /\
+		 ||
+		 ||
+	(23)addr: 0x7ff4e4b04080
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:45:9: 
+   |
+45 |         cons_step_C = num;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(22)addr: 0x7ff4e3f0b950
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:44:9: 
+   |
+44 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+		 ||
+	(21)addr: 0x7ff4e3f0b610
+		 /\
+		 ||
+		 ||
+	(20)addr: 0x7ff4e3f0b2d0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:20:9: 
+   |
+20 |         cons_step_A = num;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(19)addr: 0x7ff4e48093c0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:19:9: 
+   |
+19 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+		 ||
+	(18)addr: 0x7ff4e4809080
+		 /\
+		 ||
+		 ||
+	(17)addr: 0x7ff4e4807e70
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:32:9: 
+   |
+32 |         cons_step_B = num;
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(16)addr: 0x7ff4e3f14220
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:31:9: 
+   |
+31 |         num++;
+   |         ^^^^^
+-------------------------------------------------
+		 ||
+	(15)addr: 0x7ff4e3f07160
+		 /\
+		 ||
+		 ||
+	(14)addr: 0x7ff4e3f1c210
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:7:9: 
+  |
+7 |         cons_step_object = num;
+  |         ^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(13)addr: 0x7ff4e4806170
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/MultipleInheritance.sol:6:9: 
+  |
+6 |         num++;
+  |         ^^^^^
+-------------------------------------------------
+		 ||
+	(12)addr: 0x7ff4e4805e30
+		 /\
+		 ||
+		 ||
+	(11)addr: 0x7ff4e4805af0
+		 /\
+		 ||
+		 ||
+	(10)addr: 0x7ff4e48057b0
+		 /\
+		 ||
+		 ||
+	(9)addr: 0x7ff4e4805470
+		 /\
+		 ||
+		 ||
+	(8)addr: 0x7ff4e4805130
+		 /\
+		 ||
+		 ||
+	(7)addr: 0x7ff4e4804df0
+		 /\
+		 ||
+		 ||
+	(6)addr: 0x7ff4e4804ab0
+		 /\
+		 ||
+		 ||
+	(5)addr: 0x7ff4e4804680
+		 /\
+		 ||
+		 ||
+	(4)addr: 0x7ff4e4a04080
+		 /\
+		 ||
+		 ||
+	(3)addr: 0x7ff4e48044e0
+		 /\
+		 ||
+		 ||
+	(2)addr: 0x7ff4e48043d0
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:21:50] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/Structs.sol            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		bank@68
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+
+Contract: Bank
+	State Variables:
+		gg@13
+		b@6
+		a@4
+	Modifiers:
+	Functions:
+		Bank::test:function ()
+	Local Variables:
+		happy@17
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:33:9: 
+   |
+33 |         bank = new Bank();
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+Struct Type: Happy
+Struct Type: Happy
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:34:9: 
+   |
+34 |         bank.test();
+   |         ^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:13:9: 
+   |
+13 |         Happy memory happy;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:14:9: 
+   |
+14 |         happy.cc = 1;
+   |         ^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:15:9: 
+   |
+15 |         happy.dd = 2;
+   |         ^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:18:9: 
+   |
+18 |         assert(happy.cc + happy.dd == 3);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:21:9: 
+   |
+21 |         assert(happy.cc + happy.dd == 4);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 12, addr: 0x7fee9590a940
+sourceContext: 9, addr: 0x7fee9590aa38
+	state variables: 
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+		varName: gg@13%2%, value: (Happy 0 0), sort: Happy
+		varName: a@4%2%, value: (|T[(Array Int Int),LEN]| ((as const (Array Int Int)) 0) 5), sort: T[(Array Int Int),LEN]
+		varName: b@6%2%, value: 0, sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: ret_Bank, value: 2, sort: Int
+		varName: balance%2%, value: 0, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: bank@68%1%, value: 2, sort: Int
+	local variables: 
+		varName: happy@17%2%, value: (Happy 1 2), sort: Happy
+	path conditions: 
+		(= (+ 1 2) 3)
+		(not (= (+ 1 2) 4))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [_MAIN_::]'s call depth: 1
+	function [Bank::test]'s call depth: 1
+Call Stack: _MAIN_::() -> Bank::test()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(12) addr: 0x6000015b8ab0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:21:9: 
+   |
+21 |         assert(happy.cc + happy.dd == 4);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(9)addr: 0x7fee9580fe50
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:18:9: 
+   |
+18 |         assert(happy.cc + happy.dd == 3);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(8)addr: 0x7fee95908f30
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:15:9: 
+   |
+15 |         happy.dd = 2;
+   |         ^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(7)addr: 0x7fee95908e20
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:14:9: 
+   |
+14 |         happy.cc = 1;
+   |         ^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(6)addr: 0x7fee95908d10
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Structs.sol:13:9: 
+   |
+13 |         Happy memory happy;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(5)addr: 0x7fee95908c00
+		 /\
+		 ||
+		 ||
+	(4)addr: 0x7fee95908af0
+		 /\
+		 ||
+		 ||
+	(3)addr: 0x7fee959047f0
+		 /\
+		 ||
+		 ||
+	(2)addr: 0x7fee959046e0
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:21:57] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/NewBytesArray.sol 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		addr@699
+		voterContract@697
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+		proposalNames@733
+		blindParam@727
+		proposalNum@779
+		ballotName@723
+
+Contract: ibaVoter
+	State Variables:
+		proposals@62
+		ballots@55
+		voteCount@50
+		voted@42
+		votedDatas@35
+	Modifiers:
+	Functions:
+		ibaVoter::vote:function (address,uint256,uint256) returns (bool)
+		ibaVoter::getVotesCount:function (address,uint256,bytes32) returns (uint256)
+		ibaVoter::getVotedData:function (address,uint256,address) returns (uint256)
+		ibaVoter::getWinner:function (address,uint256) returns (bytes32)
+		ibaVoter::getBallotsNum:function (address) returns (uint256)
+		ibaVoter::getProposalIndex:function (address,uint256,bytes32) returns (uint256)
+		ibaVoter::isVoted:function (address,uint256) returns (bool)
+		ibaVoter::finishBallot:function (bytes32) returns (bool)
+		ibaVoter::startNewBallot:function (bytes32,bool,bytes32[]) returns (bool)
+		ibaVoter::getVoted:function (address,uint256) returns (address[])
+		ibaVoter::getBallotIndex:function (address,bytes32) returns (uint256)
+		ibaVoter::getProposalsNum:function (address,uint256) returns (uint256)
+	Local Variables:
+		i@643
+		winner@640
+		maxVotes@637
+		ballotIndex@618
+		chainperson@616
+		success@553
+		i@556
+		proposalName@511
+		count@82
+		ballot@509
+		ballot@410
+		voter@366
+		chainperson@408
+		proposalNames@179
+		proposalNum@369
+		chainperson@362
+		ballot@550
+		proposalName@304
+		ballot@133
+		chainperson@300
+		count@307
+		ret_0@276
+		chainperson@94
+		chainperson@270
+		blindParam@176
+		ballotsNum@229
+		i@431
+		y@185
+		index@514
+		finished@25
+		i@237
+		ballotName@174
+		ballot@302
+		i@139
+		i@102
+		success@182
+		success@415
+		index@99
+		proposalIndex@21
+		ballot@79
+		chainperson@64
+		chainperson@131
+		i@517
+		ballot@272
+		votedPerson@19
+		chainperson@507
+		winnerName@621
+		ballot@364
+		chainperson@77
+		proposalNum@412
+		count@67
+		result@136
+		i@323
+		ballotName@96
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:168:9: 
+    |
+168 |         voterContract = new ibaVoter();
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+Struct Type: Proposal
+Struct Type: Ballot
+Struct Type: votedData
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:169:9: 
+    |
+169 |         addr = address(voterContract);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:171:9: 
+    |
+171 |         assert(addr == address(voterContract));
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:173:9: 
+    |
+173 |         bytes32 ballotName = "BallotTest";
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:174:9: 
+    |
+174 |         bool blindParam = false;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:175:9: 
+    |
+175 |         bytes32[] memory proposalNames;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:176:9: 
+    |
+176 |         proposalNames = new bytes32[](4);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+** This assignment statement can be simplified. Please do so! **
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:178:9: 
+    |
+178 |         proposalNames[0] =  "A";
+    |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:179:9: 
+    |
+179 |         proposalNames[1] =  "B";
+    |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:180:9: 
+    |
+180 |         proposalNames[2] =  "C";
+    |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:181:9: 
+    |
+181 |         voterContract.startNewBallot(ballotName, blindParam, proposalNames);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:57:9: 
+   |
+57 |         for (uint8 y=0;y<ballots[msg.sender].length;y++){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:57:14: 
+   |
+57 |         for (uint8 y=0;y<ballots[msg.sender].length;y++){
+   |              ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:62:9: 
+   |
+62 |         ballots[msg.sender].push(Ballot({
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+Struct Type: Ballot
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:69:9: 
+   |
+69 |         uint ballotsNum = ballots[msg.sender].length;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:9: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:14: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |              ^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:51: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                                   ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:71:13: 
+   |
+71 |             proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+Struct Type: Proposal
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:47: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                               ^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:9: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:51: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                                   ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:71:13: 
+   |
+71 |             proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+Struct Type: Proposal
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:47: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                               ^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:9: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:51: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                                   ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:71:13: 
+   |
+71 |             proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+Struct Type: Proposal
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:47: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                               ^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:9: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:51: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                                   ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:71:13: 
+   |
+71 |             proposals[msg.sender][ballotsNum-1].push(Proposal({name:proposalNames[i]}));
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+Struct Type: Proposal
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:47: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |                                               ^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:70:9: 
+   |
+70 |         for (uint8 i=0;i<proposalNames.length;i++){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:73:9: 
+   |
+73 |         return true;
+   |         ^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:182:9: 
+    |
+182 |         voterContract.vote(msg.sender, 0, 1);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:108:9: 
+    |
+108 |         if (ballots[chainperson][ballot].finished == true){
+    |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+TRUE branch is not feasible! Skipped.
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:111:9: 
+    |
+111 |         for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+    |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:111:14: 
+    |
+111 |         for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+    |              ^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:116:9: 
+    |
+116 |         voted[chainperson][ballot].push(msg.sender);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:117:9: 
+    |
+117 |         voteCount[chainperson][ballot][proposalNum]++;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:119:9: 
+    |
+119 |         votedDatas[chainperson][ballot][msg.sender] = votedData({proposal: proposalNum, isVal: true});
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+Struct Type: votedData
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:120:9: 
+    |
+120 |         emit Vote(msg.sender, proposalNum);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:121:9: 
+    |
+121 |         return true;
+    |         ^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:184:9: 
+    |
+184 |         uint proposalNum;
+    |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:185:9: 
+    |
+185 |         proposalNum = voterContract.getVotedData(msg.sender, 0, msg.sender);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:96:9: 
+   |
+96 |         if (ballots[chainperson][ballot].blind == true){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+TRUE branch is not feasible! Skipped.
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:100:9: 
+   |
+100 |         if (votedDatas[chainperson][ballot][voter].isVal == true){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+TRUE branch is feasible! Follow it.
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:100:66: 
+   |
+100 |         if (votedDatas[chainperson][ballot][voter].isVal == true){
+   |                                                                  ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:101:13: 
+    |
+101 |             return votedDatas[chainperson][ballot][voter].proposal;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:188:9: 
+    |
+188 |         assert(proposalNum == 1);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:191:9: 
+    |
+191 |         assert(proposalNum == 2);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 51, addr: 0x7f9566f05ed0
+sourceContext: 48, addr: 0x7f9566f05fc8
+	state variables: 
+		varName: ret_ibaVoter, value: 2, sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+		varName: addr@699%1%, value: 2, sort: Int
+		varName: voteCount@50%2%, value: (let ((a!1 (select ((as const (Array Int (Array Int (Array Int Int))))
+                     ((as const (Array Int (Array Int Int)))
+                       ((as const (Array Int Int)) 0)))
+                   1)))
+(let ((a!2 (store (select a!1 0) 1 (+ (select (select a!1 0) 1) 1))))
+  (store ((as const (Array Int (Array Int (Array Int Int))))
+           ((as const (Array Int (Array Int Int)))
+             ((as const (Array Int Int)) 0)))
+         1
+         (store a!1 0 a!2)))), sort: (Array Int (Array Int (Array Int Int)))
+		varName: votedDatas@35%2%, value: (let ((a!1 ((as const (Array Int (Array Int (Array Int votedData))))
+             ((as const (Array Int (Array Int votedData)))
+               ((as const (Array Int votedData)) (votedData 0 false))))))
+(let ((a!2 (store (select a!1 1)
+                  0
+                  (store (select (select a!1 1) 0) 1 (votedData 1 true)))))
+  (store a!1 1 a!2))), sort: (Array Int (Array Int (Array Int votedData)))
+		varName: voterContract@697%1%, value: 2, sort: Int
+		varName: voted@42%2%, value: (let ((a!1 ((as const (Array Int (Array Int T[(Array Int Int),LEN])))
+             ((as const (Array Int T[(Array Int Int),LEN]))
+               (|T[(Array Int Int),LEN]| ((as const (Array Int Int)) 0) 0)))))
+(let ((a!2 (store (ARRAY (select (select a!1 1) 0))
+                  (LENGTH (select (select a!1 1) 0))
+                  1))
+      (a!3 (+ (LENGTH (select (select a!1 1) 0)) 1)))
+  (store a!1 1 (store (select a!1 1) 0 (|T[(Array Int Int),LEN]| a!2 a!3))))), sort: (Array Int (Array Int T[(Array Int Int),LEN]))
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: ballots@55%2%, value: (let ((a!1 ((as const (Array Int T[(Array Int Ballot),LEN]))
+             (|T[(Array Int Ballot),LEN]|
+               ((as const (Array Int Ballot)) (Ballot "" 0 false false))
+               0))))
+(let ((a!2 (|T[(Array Int Ballot),LEN]|
+             (store (ARRAY (select a!1 1))
+                    (LENGTH (select a!1 1))
+                    (Ballot "BallotTest" 1 false false))
+             (+ (LENGTH (select a!1 1)) 1))))
+  (store a!1 1 a!2))), sort: (Array Int T[(Array Int Ballot),LEN])
+		varName: balance%2%, value: 0, sort: Int
+		varName: proposals@62%2%, value: (let ((a!1 ((as const (Array Int T[(Array Int Proposal),LEN]))
+             (|T[(Array Int Proposal),LEN]|
+               ((as const (Array Int Proposal)) (Proposal ""))
+               0)))
+      (a!2 ((as const (Array Int T[(Array Int Ballot),LEN]))
+             (|T[(Array Int Ballot),LEN]|
+               ((as const (Array Int Ballot)) (Ballot "" 0 false false))
+               0)))
+      (a!7 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!3 (|T[(Array Int Ballot),LEN]|
+             (store (ARRAY (select a!2 1))
+                    (LENGTH (select a!2 1))
+                    (Ballot "BallotTest" 1 false false))
+             (+ (LENGTH (select a!2 1)) 1)))
+      (a!8 (|T[(Array Int String),LEN]|
+             a!7
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!4 (- (LENGTH (select (store a!2 1 a!3) 1)) 1))
+      (a!9 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!8) 1 "B")
+                    (LENGTH a!8))))
+      (a!10 (LENGTH (|T[(Array Int String),LEN]|
+                      (store (ARRAY a!8) 1 "B")
+                      (LENGTH a!8)))))
+(let ((a!5 (ARRAY (select (select ((as const
+                                       (Array Int
+                                              (Array Int
+                                                     T[(Array Int Proposal),LEN])))
+                                    a!1)
+                                  1)
+                          a!4)))
+      (a!6 (LENGTH (select (select ((as const
+                                        (Array Int
+                                               (Array Int
+                                                      T[(Array Int Proposal),LEN])))
+                                     a!1)
+                                   1)
+                           a!4)))
+      (a!11 (select (ARRAY (|T[(Array Int String),LEN]| (store a!9 2 "C") a!10))
+                    0))
+      (a!14 (select (ARRAY (|T[(Array Int String),LEN]| (store a!9 2 "C") a!10))
+                    (+ 0 1)))
+      (a!17 (select (ARRAY (|T[(Array Int String),LEN]| (store a!9 2 "C") a!10))
+                    (+ (+ 0 1) 1)))
+      (a!20 (select (ARRAY (|T[(Array Int String),LEN]| (store a!9 2 "C") a!10))
+                    (+ (+ (+ 0 1) 1) 1))))
+(let ((a!12 (store (select ((as const
+                                (Array Int
+                                       (Array Int T[(Array Int Proposal),LEN])))
+                             a!1)
+                           1)
+                   a!4
+                   (|T[(Array Int Proposal),LEN]|
+                     (store a!5 a!6 (Proposal a!11))
+                     (+ a!6 1)))))
+(let ((a!13 (select (select (store ((as const
+                                        (Array Int
+                                               (Array Int
+                                                      T[(Array Int Proposal),LEN])))
+                                     a!1)
+                                   1
+                                   a!12)
+                            1)
+                    a!4)))
+(let ((a!15 (store (select (store ((as const
+                                       (Array Int
+                                              (Array Int
+                                                     T[(Array Int Proposal),LEN])))
+                                    a!1)
+                                  1
+                                  a!12)
+                           1)
+                   a!4
+                   (|T[(Array Int Proposal),LEN]|
+                     (store (ARRAY a!13) (LENGTH a!13) (Proposal a!14))
+                     (+ (LENGTH a!13) 1)))))
+(let ((a!16 (select (store (store ((as const
+                                       (Array Int
+                                              (Array Int
+                                                     T[(Array Int Proposal),LEN])))
+                                    a!1)
+                                  1
+                                  a!12)
+                           1
+                           a!15)
+                    1)))
+(let ((a!18 (|T[(Array Int Proposal),LEN]|
+              (store (ARRAY (select a!16 a!4))
+                     (LENGTH (select a!16 a!4))
+                     (Proposal a!17))
+              (+ (LENGTH (select a!16 a!4)) 1))))
+(let ((a!19 (store (store (store ((as const
+                                      (Array Int
+                                             (Array Int
+                                                    T[(Array Int Proposal),LEN])))
+                                   a!1)
+                                 1
+                                 a!12)
+                          1
+                          a!15)
+                   1
+                   (store a!16 a!4 a!18))))
+(let ((a!21 (store (ARRAY (select (select a!19 1) a!4))
+                   (LENGTH (select (select a!19 1) a!4))
+                   (Proposal a!20)))
+      (a!22 (+ (LENGTH (select (select a!19 1) a!4)) 1)))
+  (store a!19
+         1
+         (store (select a!19 1) a!4 (|T[(Array Int Proposal),LEN]| a!21 a!22)))))))))))))), sort: (Array Int (Array Int T[(Array Int Proposal),LEN]))
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+	local variables: 
+		varName: y@185%2%, value: 0, sort: Int
+		varName: i@237%2%, value: (+ 0 1 1 1 1), sort: Int
+		varName: winner@640%2%, value: "", sort: String
+		varName: voter@366%2%, value: 1, sort: Int
+		varName: chainperson@77%2%, value: 0, sort: Int
+		varName: chainperson@131%2%, value: 0, sort: Int
+		varName: winnerName@621%2%, value: "", sort: String
+		varName: chainperson@64%2%, value: 0, sort: Int
+		varName: ballotName@723%1%, value: "BallotTest", sort: String
+		varName: chainperson@507%2%, value: 0, sort: Int
+		varName: success@415%2%, value: true, sort: Bool
+		varName: i@323%2%, value: 0, sort: Int
+		varName: proposalNames@733%1%, value: (let ((a!1 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!2 (|T[(Array Int String),LEN]|
+             a!1
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!3 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!2) 1 "B")
+                    (LENGTH a!2))))
+      (a!4 (LENGTH (|T[(Array Int String),LEN]|
+                     (store (ARRAY a!2) 1 "B")
+                     (LENGTH a!2)))))
+  (|T[(Array Int String),LEN]| (store a!3 2 "C") a!4)))), sort: T[(Array Int String),LEN]
+		varName: ballot@272%2%, value: 0, sort: Int
+		varName: chainperson@408%2%, value: 1, sort: Int
+		varName: success@182%2%, value: true, sort: Bool
+		varName: i@517%2%, value: 0, sort: Int
+		varName: ballotName@96%2%, value: "", sort: String
+		varName: i@139%2%, value: 0, sort: Int
+		varName: index@99%2%, value: 0, sort: Int
+		varName: proposalIndex@21%2%, value: 0, sort: Int
+		varName: ballot@302%2%, value: 0, sort: Int
+		varName: ballot@410%2%, value: 0, sort: Int
+		varName: finished@25%2%, value: false, sort: Bool
+		varName: votedPerson@19%2%, value: 0, sort: Int
+		varName: i@431%2%, value: 0, sort: Int
+		varName: ballot@550%2%, value: "", sort: String
+		varName: blindParam@176%2%, value: false, sort: Bool
+		varName: count@307%2%, value: 0, sort: Int
+		varName: chainperson@270%2%, value: 0, sort: Int
+		varName: i@643%2%, value: 0, sort: Int
+		varName: chainperson@94%2%, value: 0, sort: Int
+		varName: chainperson@300%2%, value: 0, sort: Int
+		varName: ballot@133%2%, value: 0, sort: Int
+		varName: proposalName@304%2%, value: "", sort: String
+		varName: proposalNum@369%2%, value: (let ((a!1 ((as const (Array Int (Array Int (Array Int votedData))))
+             ((as const (Array Int (Array Int votedData)))
+               ((as const (Array Int votedData)) (votedData 0 false))))))
+(let ((a!2 (store (select a!1 1)
+                  0
+                  (store (select (select a!1 1) 0) 1 (votedData 1 true)))))
+(let ((a!3 (select (select (select (store a!1 1 a!2) 1) 0) 1)))
+  (proposal a!3)))), sort: Int
+		varName: ballot@509%2%, value: 0, sort: Int
+		varName: proposalNum@412%2%, value: 1, sort: Int
+		varName: ballotsNum@229%2%, value: (let ((a!1 ((as const (Array Int T[(Array Int Ballot),LEN]))
+             (|T[(Array Int Ballot),LEN]|
+               ((as const (Array Int Ballot)) (Ballot "" 0 false false))
+               0))))
+(let ((a!2 (|T[(Array Int Ballot),LEN]|
+             (store (ARRAY (select a!1 1))
+                    (LENGTH (select a!1 1))
+                    (Ballot "BallotTest" 1 false false))
+             (+ (LENGTH (select a!1 1)) 1))))
+  (LENGTH (select (store a!1 1 a!2) 1)))), sort: Int
+		varName: chainperson@616%2%, value: 0, sort: Int
+		varName: ret_0@276%2%, value: (|T[(Array Int Int),LEN]| ((as const (Array Int Int)) 0) 0), sort: T[(Array Int Int),LEN]
+		varName: count@67%2%, value: 0, sort: Int
+		varName: blindParam@727%1%, value: false, sort: Bool
+		varName: ballot@364%2%, value: 0, sort: Int
+		varName: ballotName@174%2%, value: "BallotTest", sort: String
+		varName: chainperson@362%2%, value: 1, sort: Int
+		varName: result@136%2%, value: false, sort: Bool
+		varName: i@102%2%, value: 0, sort: Int
+		varName: maxVotes@637%2%, value: 0, sort: Int
+		varName: success@553%2%, value: false, sort: Bool
+		varName: proposalNames@179%2%, value: (let ((a!1 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!2 (|T[(Array Int String),LEN]|
+             a!1
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!3 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!2) 1 "B")
+                    (LENGTH a!2))))
+      (a!4 (LENGTH (|T[(Array Int String),LEN]|
+                     (store (ARRAY a!2) 1 "B")
+                     (LENGTH a!2)))))
+  (|T[(Array Int String),LEN]| (store a!3 2 "C") a!4)))), sort: T[(Array Int String),LEN]
+		varName: ballot@79%2%, value: 0, sort: Int
+		varName: index@514%2%, value: 0, sort: Int
+		varName: ballotIndex@618%2%, value: 0, sort: Int
+		varName: proposalName@511%2%, value: "", sort: String
+		varName: count@82%2%, value: 0, sort: Int
+		varName: i@556%2%, value: 0, sort: Int
+		varName: proposalNum@779%1%, value: (let ((a!1 ((as const (Array Int (Array Int (Array Int votedData))))
+             ((as const (Array Int (Array Int votedData)))
+               ((as const (Array Int votedData)) (votedData 0 false))))))
+(let ((a!2 (store (select a!1 1)
+                  0
+                  (store (select (select a!1 1) 0) 1 (votedData 1 true)))))
+(let ((a!3 (select (select (select (store a!1 1 a!2) 1) 0) 1)))
+  (proposal a!3)))), sort: Int
+	path conditions: 
+		(= 2 2)
+		(let ((a!1 ((as const (Array Int T[(Array Int Ballot),LEN]))
+             (|T[(Array Int Ballot),LEN]|
+               ((as const (Array Int Ballot)) (Ballot "" 0 false false))
+               0))))
+  (not (< 0 (LENGTH (select a!1 1)))))
+		(let ((a!1 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!2 (|T[(Array Int String),LEN]|
+             a!1
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!3 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!2) 1 "B")
+                    (LENGTH a!2))))
+      (a!4 (LENGTH (|T[(Array Int String),LEN]|
+                     (store (ARRAY a!2) 1 "B")
+                     (LENGTH a!2)))))
+  (< 0 (LENGTH (|T[(Array Int String),LEN]| (store a!3 2 "C") a!4))))))
+		(let ((a!1 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!2 (|T[(Array Int String),LEN]|
+             a!1
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!3 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!2) 1 "B")
+                    (LENGTH a!2))))
+      (a!4 (LENGTH (|T[(Array Int String),LEN]|
+                     (store (ARRAY a!2) 1 "B")
+                     (LENGTH a!2)))))
+  (< (+ 0 1) (LENGTH (|T[(Array Int String),LEN]| (store a!3 2 "C") a!4))))))
+		(let ((a!1 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!2 (|T[(Array Int String),LEN]|
+             a!1
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!3 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!2) 1 "B")
+                    (LENGTH a!2))))
+      (a!4 (LENGTH (|T[(Array Int String),LEN]|
+                     (store (ARRAY a!2) 1 "B")
+                     (LENGTH a!2)))))
+  (< (+ 0 1 1) (LENGTH (|T[(Array Int String),LEN]| (store a!3 2 "C") a!4))))))
+		(let ((a!1 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!2 (|T[(Array Int String),LEN]|
+             a!1
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!3 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!2) 1 "B")
+                    (LENGTH a!2))))
+      (a!4 (LENGTH (|T[(Array Int String),LEN]|
+                     (store (ARRAY a!2) 1 "B")
+                     (LENGTH a!2)))))
+  (< (+ 0 1 1 1) (LENGTH (|T[(Array Int String),LEN]| (store a!3 2 "C") a!4))))))
+		(let ((a!1 (store (ARRAY (|T[(Array Int String),LEN]|
+                           ((as const (Array Int String)) "")
+                           4))
+                  0
+                  "A")))
+(let ((a!2 (|T[(Array Int String),LEN]|
+             a!1
+             (LENGTH (|T[(Array Int String),LEN]|
+                       ((as const (Array Int String)) "")
+                       4)))))
+(let ((a!3 (ARRAY (|T[(Array Int String),LEN]|
+                    (store (ARRAY a!2) 1 "B")
+                    (LENGTH a!2))))
+      (a!4 (LENGTH (|T[(Array Int String),LEN]|
+                     (store (ARRAY a!2) 1 "B")
+                     (LENGTH a!2)))))
+(let ((a!5 (< (+ 0 1 1 1 1)
+              (LENGTH (|T[(Array Int String),LEN]| (store a!3 2 "C") a!4)))))
+  (not a!5)))))
+		(let ((a!1 ((as const (Array Int T[(Array Int Ballot),LEN]))
+             (|T[(Array Int Ballot),LEN]|
+               ((as const (Array Int Ballot)) (Ballot "" 0 false false))
+               0))))
+(let ((a!2 (|T[(Array Int Ballot),LEN]|
+             (store (ARRAY (select a!1 1))
+                    (LENGTH (select a!1 1))
+                    (Ballot "BallotTest" 1 false false))
+             (+ (LENGTH (select a!1 1)) 1))))
+(let ((a!3 (select (ARRAY (select (store a!1 1 a!2) 1)) 0)))
+  (not (= (finished a!3) true)))))
+		(let ((a!1 ((as const (Array Int (Array Int T[(Array Int Int),LEN])))
+             ((as const (Array Int T[(Array Int Int),LEN]))
+               (|T[(Array Int Int),LEN]| ((as const (Array Int Int)) 0) 0)))))
+(let ((a!2 (< 0 (LENGTH (select (select a!1 1) 0)))))
+  (not a!2)))
+		(let ((a!1 ((as const (Array Int T[(Array Int Ballot),LEN]))
+             (|T[(Array Int Ballot),LEN]|
+               ((as const (Array Int Ballot)) (Ballot "" 0 false false))
+               0))))
+(let ((a!2 (|T[(Array Int Ballot),LEN]|
+             (store (ARRAY (select a!1 1))
+                    (LENGTH (select a!1 1))
+                    (Ballot "BallotTest" 1 false false))
+             (+ (LENGTH (select a!1 1)) 1))))
+(let ((a!3 (select (ARRAY (select (store a!1 1 a!2) 1)) 0)))
+  (not (= (blind a!3) true)))))
+		(let ((a!1 ((as const (Array Int (Array Int (Array Int votedData))))
+             ((as const (Array Int (Array Int votedData)))
+               ((as const (Array Int votedData)) (votedData 0 false))))))
+(let ((a!2 (store (select a!1 1)
+                  0
+                  (store (select (select a!1 1) 0) 1 (votedData 1 true)))))
+(let ((a!3 (select (select (select (store a!1 1 a!2) 1) 0) 1)))
+  (= (isVal a!3) true))))
+		(let ((a!1 ((as const (Array Int (Array Int (Array Int votedData))))
+             ((as const (Array Int (Array Int votedData)))
+               ((as const (Array Int votedData)) (votedData 0 false))))))
+(let ((a!2 (store (select a!1 1)
+                  0
+                  (store (select (select a!1 1) 0) 1 (votedData 1 true)))))
+(let ((a!3 (select (select (select (store a!1 1 a!2) 1) 0) 1)))
+  (= (proposal a!3) 1))))
+		(let ((a!1 ((as const (Array Int (Array Int (Array Int votedData))))
+             ((as const (Array Int (Array Int votedData)))
+               ((as const (Array Int votedData)) (votedData 0 false))))))
+(let ((a!2 (store (select a!1 1)
+                  0
+                  (store (select (select a!1 1) 0) 1 (votedData 1 true)))))
+(let ((a!3 (select (select (select (store a!1 1 a!2) 1) 0) 1)))
+  (not (= (proposal a!3) 2)))))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [ibaVoter::getVotedData]'s call depth: 0
+	function [_MAIN_::]'s call depth: 1
+	function [ibaVoter::vote]'s call depth: 0
+	function [ibaVoter::startNewBallot]'s call depth: 0
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(51) addr: 0x600001490070
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:191:9: 
+    |
+191 |         assert(proposalNum == 2);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(48)addr: 0x7f9546f16ee0
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:188:9: 
+    |
+188 |         assert(proposalNum == 1);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(47)addr: 0x7f9516f0ac70
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:101:13: 
+    |
+101 |             return votedDatas[chainperson][ballot][voter].proposal;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(46)addr: 0x7f9516f0ab60
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:100:66: 
+   |
+100 |         if (votedDatas[chainperson][ballot][voter].isVal == true){
+   |                                                                  ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+		 ||
+	(45)addr: 0x7f9566f061c0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:100:9: 
+   |
+100 |         if (votedDatas[chainperson][ballot][voter].isVal == true){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+		 ||
+	(44)addr: 0x7f9546f1c020
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:96:9: 
+   |
+96 |         if (ballots[chainperson][ballot].blind == true){
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+		 ||
+	(43)addr: 0x7f9567813280
+		 /\
+		 ||
+		 ||
+	(42)addr: 0x7f956780f230
+		 /\
+		 ||
+		 ||
+	(41)addr: 0x7f9566f08a60
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:184:9: 
+    |
+184 |         uint proposalNum;
+    |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(40)addr: 0x7f9566f0db40
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:121:9: 
+    |
+121 |         return true;
+    |         ^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(39)addr: 0x7f9566f082c0
+		 /\
+		 ||
+		 ||
+	(38)addr: 0x7f9566f04920
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:117:9: 
+    |
+117 |         voteCount[chainperson][ballot][proposalNum]++;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(37)addr: 0x7f9546f166a0
+		 /\
+		 ||
+-------------------------------------------------
+   --> /Users/palina/Desktop/demo-evaluation/NewBytesArray.sol:111:14: 
+    |
+111 |         for (uint8 i = 0;i<voted[chainperson][ballot].length;i++){
+    |              ^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(36)addr: 0x7f9546f16590
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:22:05] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/UintOverflow.sol 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+		c@12
+		b@8
+		a@4
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:3:9: 
+  |
+3 |         uint8 a = 255;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:4:9: 
+  |
+4 |         uint8 b = 255;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:6:9: 
+  |
+6 |         uint8 c = a + b;
+  |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:9:9: 
+  |
+9 |         assert(c == 254);
+  |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:10:9: 
+  |
+10 |         assert(c == a + b);
+  |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:14:9: 
+   |
+14 |         assert(c > 255);
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 12, addr: 0x7faeb1f1aba0
+sourceContext: 9, addr: 0x7faeb1f1ac98
+	state variables: 
+		varName: msg.sender, value: 0, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+	local variables: 
+		varName: c@12%1%, value: (mod (+ 255 255) 256), sort: Int
+		varName: b@8%1%, value: 255, sort: Int
+		varName: a@4%1%, value: 255, sort: Int
+	path conditions: 
+		(= (mod (+ 255 255) 256) 254)
+		(= (mod (+ 255 255) 256) (mod (+ 255 255) 256))
+		(not (> (mod (+ 255 255) 256) 255))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [_MAIN_::]'s call depth: 1
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(12) addr: 0x600001288d20
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:14:9: 
+   |
+14 |         assert(c > 255);
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(9)addr: 0x7faec1f0a0e0
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:10:9: 
+  |
+10 |         assert(c == a + b);
+  |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(7)addr: 0x7faeb1f05740
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:9:9: 
+  |
+9 |         assert(c == 254);
+  |         ^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(6)addr: 0x7faec1f055d0
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:6:9: 
+  |
+6 |         uint8 c = a + b;
+  |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(5)addr: 0x7faec1f054c0
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:4:9: 
+  |
+4 |         uint8 b = 255;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(4)addr: 0x7faec1f053b0
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:3:9: 
+  |
+3 |         uint8 a = 255;
+  |         ^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(3)addr: 0x7faec1f09710
+		 /\
+		 ||
+		 ||
+	(2)addr: 0x7faec1f09600
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+[WARNINGS!!] There are [2] overflows: 
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:6:19: 
+  |
+6 |         uint8 c = a + b;
+  |                   ^^^^^
+ --> /Users/palina/Desktop/demo-evaluation/UintOverflow.sol:10:21: 
+  |
+10 |         assert(c == a + b);
+  |                     ^^^^^
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:22:14] [~/DeFi/SolSEE/build] [master]
+-> % ./SolSEE/SolSEE -symexe-main ~/Desktop/demo-evaluation/Revert.sol      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dumping contract information: 
+Contract: _MAIN_
+	Constructor: _MAIN_()
+	State Variables:
+		res@56
+		$b@54
+		$a@51
+		t@59
+		bank@48
+	Modifiers:
+	Functions:
+		_MAIN_:::function ()
+	Local Variables:
+
+Contract: Bank
+	Constructor: Bank()
+	State Variables:
+		totalSupply@2
+	Modifiers:
+	Functions:
+		Bank::getTotalSupply:function () returns (uint256)
+		Bank::test:function (uint256,uint256) returns (bool)
+		Bank:::function ()
+	Local Variables:
+		ret_0@40
+		y@14
+		r@17
+		x@12
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:34:9: 
+   |
+34 |         bank = new Bank();
+   |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/Revert.sol:6:9: 
+  |
+6 |         totalSupply = 100;
+  |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:36:9: 
+   |
+36 |         res = bank.test($a, $b);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+ --> /Users/palina/Desktop/demo-evaluation/Revert.sol:10:9: 
+  |
+10 |         totalSupply  = 90;
+  |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:12:9: 
+   |
+12 |         if(x <= y) {
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+TRUE branch is feasible! Follow it.
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:12:20: 
+   |
+12 |         if(x <= y) {
+   |                    ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:13:13: 
+   |
+13 |             revert("x is not greater than y!!");
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:16:9: 
+   |
+16 |         r = true;
+   |         ^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:37:9: 
+   |
+37 |         t = bank.getTotalSupply();
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:20:9: 
+   |
+20 |         return totalSupply;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:37:9: 
+   |
+37 |         t = bank.getTotalSupply();
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:20:9: 
+   |
+20 |         return totalSupply;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:40:9: 
+   |
+40 |         assert($a > $b || t == 100);    // check if $a <= $b, then t == 100
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:40:9: 
+   |
+40 |         assert($a > $b || t == 100);    // check if $a <= $b, then t == 100
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:41:9: 
+   |
+41 |         assert($a <= $b || t == 90);    // check if $a > $b, then t == 90
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:41:9: 
+   |
+41 |         assert($a <= $b || t == 90);    // check if $a > $b, then t == 90
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+positive branch is possible! Go head with it!
+Checking assertion: 
+[ satisfied ]
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:45:9: 
+   |
+45 |         assert(t > 100);
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+-------------------------------------------------
+Executing statement: 
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:45:9: 
+   |
+45 |         assert(t > 100);
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+******* ******* ******* ******* ******* ******* *******
+negation branch is possible! Go head with it!
+Checking assertion: 
+[ VIOLATED ]!!
+Stop executing this path in this context!
+******* ******* ******* ******* ******* ******* *******
+result context [1]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 32, addr: 0x7fe3d200b8d0
+sourceContext: 27, addr: 0x7fe3d200b9c8
+	state variables: 
+		varName: totalSupply@2%2%, value: 100, sort: Int
+		varName: res@56%1%, value: false, sort: Bool
+		varName: $b@54%1%, value: $b@54%1%, sort: Int
+		varName: $a@51%1%, value: $a@51%1%, sort: Int
+		varName: t@59%1%, value: 100, sort: Int
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+		varName: ret_Bank, value: 2, sort: Int
+		varName: balance%2%, value: 0, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: bank@48%1%, value: 2, sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+	local variables: 
+		varName: x@12%2%, value: 0, sort: Int
+		varName: r@17%2%, value: false, sort: Bool
+		varName: ret_0@40%2%, value: 100, sort: Int
+		varName: y@14%2%, value: 0, sort: Int
+	path conditions: 
+		(<= $a@51%1% $b@54%1%)
+		(or (> $a@51%1% $b@54%1%) (= 100 100))
+		(or (<= $a@51%1% $b@54%1%) (= 100 90))
+		(not (> 100 100))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [Bank::getTotalSupply]'s call depth: 0
+	function [Bank::]'s call depth: 0
+	function [_MAIN_::]'s call depth: 1
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+result context [2]: 
++++++++++++++ printing context +++++++++++++++
+idNum: 34, addr: 0x7fe3d2205860
+sourceContext: 29, addr: 0x7fe3d2205958
+	state variables: 
+		varName: totalSupply@2%2%, value: 90, sort: Int
+		varName: res@56%1%, value: true, sort: Bool
+		varName: $b@54%1%, value: $b@54%1%, sort: Int
+		varName: $a@51%1%, value: $a@51%1%, sort: Int
+		varName: t@59%1%, value: 90, sort: Int
+		varName: balance%1%, value: balance%1%_0_, sort: Int
+		varName: ret_Bank, value: 2, sort: Int
+		varName: balance%2%, value: 0, sort: Int
+		varName: block.timestamp, value: block.timestamp_0_, sort: Int
+		varName: msg.sender, value: 0, sort: Int
+		varName: bank@48%1%, value: 2, sort: Int
+		varName: msg.value, value: msg.value_0_, sort: Int
+	local variables: 
+		varName: x@12%2%, value: $a@51%1%, sort: Int
+		varName: r@17%2%, value: true, sort: Bool
+		varName: ret_0@40%2%, value: 90, sort: Int
+		varName: y@14%2%, value: $b@54%1%, sort: Int
+	path conditions: 
+		(not (<= $a@51%1% $b@54%1%))
+		(or (> $a@51%1% $b@54%1%) (= 90 100))
+		(or (<= $a@51%1% $b@54%1%) (= 90 90))
+		(not (> 90 100))
+	goHead: 0
+	current Address: 1
+	msg.sender: 0
+	current Function Scop: 
+	abnormal Termination: assert() failed
+	function [Bank::]'s call depth: 0
+	function [_MAIN_::]'s call depth: 1
+	function [Bank::getTotalSupply]'s call depth: 0
+	function [Bank::test]'s call depth: 0
+Call Stack: _MAIN_::()
+++++++++++++ end of printing context +++++++++++++++
+Path [0]: 
+	(32) addr: 0x600003b4c140
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:45:9: 
+   |
+45 |         assert(t > 100);
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(27)addr: 0x7fe3d22175b0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:41:9: 
+   |
+41 |         assert($a <= $b || t == 90);    // check if $a > $b, then t == 90
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(23)addr: 0x7fe3d22047f0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:40:9: 
+   |
+40 |         assert($a > $b || t == 100);    // check if $a <= $b, then t == 100
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(19)addr: 0x7fe3d220f380
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:20:9: 
+   |
+20 |         return totalSupply;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(18)addr: 0x7fe3d220f0d0
+		 /\
+		 ||
+		 ||
+	(17)addr: 0x7fe3d220eeb0
+		 /\
+		 ||
+		 ||
+	(16)addr: 0x7fe3d220ec90
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:36:9: 
+   |
+36 |         res = bank.test($a, $b);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(7)addr: 0x7fe3d2109400
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/Revert.sol:6:9: 
+  |
+6 |         totalSupply = 100;
+  |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(6)addr: 0x7fe3d21091e0
+		 /\
+		 ||
+		 ||
+	(5)addr: 0x7fe3d2104be0
+		 /\
+		 ||
+		 ||
+	(4)addr: 0x7fe3d2104ad0
+		 /\
+		 ||
+		 ||
+	(3)addr: 0x7fe3d21049c0
+		 /\
+		 ||
+		 ||
+	(2)addr: 0x7fe3d2108d20
+
+Path [1]: 
+	(34) addr: 0x600003b4c148
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:45:9: 
+   |
+45 |         assert(t > 100);
+   |         ^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(29)addr: 0x7fe3d21107e0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:41:9: 
+   |
+41 |         assert($a <= $b || t == 90);    // check if $a > $b, then t == 90
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(25)addr: 0x7fe3d2116d20
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:40:9: 
+   |
+40 |         assert($a > $b || t == 100);    // check if $a <= $b, then t == 100
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(22)addr: 0x7fe3d22044c0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:20:9: 
+   |
+20 |         return totalSupply;
+   |         ^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(21)addr: 0x7fe3d22042a0
+		 /\
+		 ||
+		 ||
+	(20)addr: 0x7fe3d220f5a0
+		 /\
+		 ||
+		 ||
+	(15)addr: 0x7fe3d220f7e0
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:16:9: 
+   |
+16 |         r = true;
+   |         ^^^^^^^^
+-------------------------------------------------
+		 ||
+	(14)addr: 0x7fe3d2204080
+		 /\
+		 ||
+-------------------------------------------------
+  --> /Users/palina/Desktop/demo-evaluation/Revert.sol:12:9: 
+   |
+12 |         if(x <= y) {
+   |         ^ (Relevant source part starts here and spans across multiple lines).
+-------------------------------------------------
+		 ||
+	(10)addr: 0x7fe3d2109a60
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/Revert.sol:10:9: 
+  |
+10 |         totalSupply  = 90;
+  |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(9)addr: 0x7fe3d2109840
+		 /\
+		 ||
+		 ||
+	(8)addr: 0x7fe3d2109620
+		 /\
+		 ||
+		 ||
+	(7)addr: 0x7fe3d2109400
+		 /\
+		 ||
+-------------------------------------------------
+ --> /Users/palina/Desktop/demo-evaluation/Revert.sol:6:9: 
+  |
+6 |         totalSupply = 100;
+  |         ^^^^^^^^^^^^^^^^^
+-------------------------------------------------
+		 ||
+	(6)addr: 0x7fe3d21091e0
+		 /\
+		 ||
+		 ||
+	(5)addr: 0x7fe3d2104be0
+		 /\
+		 ||
+		 ||
+	(4)addr: 0x7fe3d2104ad0
+		 /\
+		 ||
+		 ||
+	(3)addr: 0x7fe3d21049c0
+		 /\
+		 ||
+		 ||
+	(2)addr: 0x7fe3d2108d20
+
+
+
+**********************************************************************
+There is NO uint underflow!
+**********************************************************************
+**********************************************************************
+There is NO uint overflow!
+**********************************************************************
+(base) 
+palina@CSLPalina02 [00:22:23] [~/DeFi/SolSEE/build] [master]
+-> % 
